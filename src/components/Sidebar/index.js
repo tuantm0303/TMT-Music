@@ -6,11 +6,12 @@ import { GiLoveSong, GiMusicalKeyboard } from "react-icons/gi";
 import { BiCategory, BiCircle, BiNews, BiRadio, BiTime } from "react-icons/bi";
 import { MdStackedLineChart } from "react-icons/md";
 import ButtonSidebar from "../ButtonSidebar";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const Sidebar = () => {
   return (
     <>
-      <aside className="side-bar w-[240px] bg-[#231B2E] h-screen">
+      <aside className="side-bar w-[240px] bg-[#231B2E] h-screen relative z-[100]">
         <div className="logo px-[25px] w-full">
           <img
             src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg"
@@ -18,15 +19,15 @@ const Sidebar = () => {
             className="h-[70px] w-10/12"
           />
         </div>
-        <ButtonSidebar element={<FcMusic />} title="Cá nhân" />
-        <ButtonSidebar element={<BiCircle />} title="Khám phá" />
-        <ButtonSidebar element={<MdStackedLineChart />} title="#zingchart" />
-        <ButtonSidebar element={<BiRadio />} title="Radio" />
-        <ButtonSidebar element={<BiNews />} title="Theo dõi" />
-        <div className="py-2">
-          <hr className="w-9/12 mx-auto" />
+        <div className="sidebar pb-2">
+          <ButtonSidebar element={<FcMusic />} title="Cá nhân" />
+          <ButtonSidebar element={<BiCircle />} title="Khám phá" />
+          <ButtonSidebar element={<MdStackedLineChart />} title="#zingchart" />
+          <ButtonSidebar element={<BiRadio />} title="Radio" />
+          <ButtonSidebar element={<BiNews />} title="Theo dõi" />
         </div>
-        <ul className="side-bar-bottom">
+        <div className="sidebar-divide relative h-[2px] w-10/12 mx-auto bg-gray-500"></div>
+        <ul className="sidebar-bottom pt-2">
           <ButtonSidebar element={<FiMusic />} title="Nhạc mới" />
           <ButtonSidebar element={<BiCategory />} title={"Thể loại"} />
           <ButtonSidebar element={<MdStackedLineChart />} title={"TOP 100"} />
@@ -40,12 +41,18 @@ const Sidebar = () => {
             </button>
           </div>
         </ul>
-        <ul className="side-bar-library">
+        <ul className="sidebar-library">
           <div className="title-library py-4 pl-8 font-bold">THƯ VIỆN</div>
           <ButtonSidebar element={<GiLoveSong />} title={"Bài hát"} />
           <ButtonSidebar element={<RiPlayListLine />} title={"Playlist"} />
           <ButtonSidebar element={<BiTime />} title={"Gần đây"} />
         </ul>
+        <div className="create-playlist fixed bottom-0 left-0 border-t-2 w-[240px] h-55px border-gray-500">
+          <ButtonSidebar
+            element={<AiOutlinePlus />}
+            title={"Tạo playlist mới"}
+          />
+        </div>
       </aside>
     </>
   );
