@@ -5,8 +5,8 @@ import { RiPlayListLine } from "react-icons/ri";
 import { GiLoveSong, GiMusicalKeyboard } from "react-icons/gi";
 import { BiCategory, BiCircle, BiNews, BiRadio, BiTime } from "react-icons/bi";
 import { MdStackedLineChart } from "react-icons/md";
-import ButtonSidebar from "../ButtonSidebar";
 import { AiOutlinePlus } from "react-icons/ai";
+import ButtonSidebar from "../ButtonSidebar";
 
 const Sidebar = () => {
   return (
@@ -33,7 +33,7 @@ const Sidebar = () => {
           <ButtonSidebar element={<MdStackedLineChart />} title={"TOP 100"} />
           <ButtonSidebar element={<GiMusicalKeyboard />} title={"MV"} />
           <div className="premium border-none rounded bg-gradient-to-r from-blue-700 to-purple-800 p-2 mx-6">
-            <div className="title text-center text-xs font-bold text-white">
+            <div className="title text-center text-xs font-bold">
               Nghe nhạc không quảng cáo cùng kho nhạc VIP
             </div>
             <button className="items-center btn text-sm font-semibold h-7 bg-yellow-400 rounded-full w-full mt-2 hover:bg-yellow-600 hover:cursor-pointer">
