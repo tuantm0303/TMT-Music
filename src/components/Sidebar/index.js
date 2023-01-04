@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FcMusic } from "react-icons/fc";
 import { FiMusic } from "react-icons/fi";
 import { RiPlayListLine } from "react-icons/ri";
@@ -47,11 +47,7 @@ const Sidebar = () => {
           <ButtonSidebar element={<RiPlayListLine />} title={"Playlist"} />
           <ButtonSidebar element={<BiTime />} title={"Gần đây"} />
         </ul>
-<<<<<<< HEAD
         <div className="create-playlist bg-[#231B2E] fixed bottom-0 left-0 border-t-2 w-[240px] h-55px border-gray-500">
-=======
-        <div className="create-playlist fixed bottom-0 left-0 border-t-2 w-[240px] h-55px border-gray-500">
->>>>>>> a85a2fd65ea291bd4c9037e4000fa8bcbbb245f3
           <ButtonSidebar
             element={<AiOutlinePlus />}
             title={"Tạo playlist mới"}
