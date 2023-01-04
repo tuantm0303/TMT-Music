@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const ButtonSidebar = (prop) => {
+  const classBtn = "item-name pl-8 flex py-3 items-center w-full ";
   const [isActive, setActive] = useState(true);
 
   const Toggle = () => {
@@ -12,8 +13,8 @@ const ButtonSidebar = (prop) => {
         onClick={() => Toggle()}
         className={
           isActive === true
-            ? `item-name pl-8 flex py-3 items-center w-full active:bg-violet-700`
-            : `item-name pl-8 flex py-3 items-center w-full`
+            ? `${classBtn} active:bg-violet-700 opacity-50 hover:opacity-90`
+            : `${classBtn}`
         }
       >
         <div className="icon mr-2 font-bold">{prop.element}</div>

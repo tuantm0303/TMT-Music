@@ -11,12 +11,12 @@ const Header = () => (
       <div className="level flex position z-1 w-full justify-between">
         <div className="level-left items-center flex">
           <div className="back">
-            <BiLeftArrowAlt className="text-4xl text-white" />
+            <BiLeftArrowAlt className="text-4xl" />
           </div>
           <div className="next">
-            <BiRightArrowAlt className="text-4xl text-white" />
+            <BiRightArrowAlt className="text-4xl" />
           </div>
-          <form className="btn-search ml-5 flex border p-5 items-center bg-[#2F2739] rounded-full h-12 w-[440px] text-white border-none">
+          <form className="btn-search ml-5 flex border p-5 items-center bg-[#2F2739] rounded-full h-12 w-[440px] border-none">
             <button className="btn-search ml-2">
               <BiSearchAlt2 className="text-3xl" />
             </button>
