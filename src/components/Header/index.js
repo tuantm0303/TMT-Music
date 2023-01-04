@@ -6,7 +6,7 @@ import { AiOutlineSetting, AiOutlineUpload } from "react-icons/ai";
 
 const Header = () => (
   <>
-    <header className="header h-[70px] px-[60px] items-center flex bg-[#170F23] flex-grow-[1]">
+    <header className="header h-[70px] px-[60px] items-center flex flex-grow-[1]">
       <div className="level flex position z-1 w-full justify-between">
         <div className="level-left items-center flex">
           <div className="back">
@@ -15,7 +15,7 @@ const Header = () => (
           <div className="next">
             <BiRightArrowAlt className="text-4xl text-white" />
           </div>
-          <form className="btn-search flex border p-5 items-center bg-[#2F2739] rounded-full h-12 w-[440px] text-white border-none">
+          <form className="btn-search ml-5 flex border p-5 items-center bg-[#2F2739] rounded-full h-12 w-[440px] text-white border-none">
             <button className="btn-search ml-2">
               <BiSearchAlt2 className="text-3xl" />
             </button>
