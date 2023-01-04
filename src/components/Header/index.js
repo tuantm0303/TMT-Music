@@ -3,6 +3,7 @@ import { BiLeftArrowAlt, BiRightArrowAlt, BiSearchAlt2 } from "react-icons/bi";
 import { FaTshirt } from "react-icons/fa";
 import { RiVipDiamondLine } from "react-icons/ri";
 import { AiOutlineSetting, AiOutlineUpload } from "react-icons/ai";
+import Icon from "../Icon";
 
 const Header = () => (
   <>
@@ -27,16 +28,20 @@ const Header = () => (
           </form>
         </div>
         <div className="level-right text-right">
-          <div className="list-icons flex items-center">
-            <FaTshirt className="text-3xl text-white p-1 m-1 mr-4 bg-gradient-to-r from-purple-400 to-[#2a1151] rounded-full" />
-            <RiVipDiamondLine className="text-3xl text-white p-1 m-1 mr-4 border-none bg-[#2a1151] rounded-full" />
-            <AiOutlineUpload className="text-3xl text-white p-1 m-1 mr-4 border-none bg-[#2a1151] rounded-full" />
-            <AiOutlineSetting className="text-3xl text-white p-1 m-1 mr-4 border-none bg-[#2a1151] rounded-full" />
+          <div className="list-icon flex items-center">
+            <Icon
+              element={
+                <FaTshirt className="h-8 w-8 rounded-full bg-gradient-to-r from-purple-400 to-[#2a1151]" />
+              }
+            />
+            <Icon element={<RiVipDiamondLine className="h-8 w-8" />} />
+            <Icon element={<AiOutlineUpload className="h-8 w-8" />} />
+            <Icon element={<AiOutlineSetting className="h-8 w-8" />} />
             <div className="img-user">
               <img
                 src="https://s120.avatar.talk.zdn.vn/5/f/9/7/7/120/3f9907e2310087063774d0940e4a62ab.jpg"
                 alt=""
-                className="w-[30px] border rounded-full border-none"
+                className="w-[30px] border rounded-full border-none mx-2 m-1"
               />
             </div>
           </div>
