@@ -47,7 +47,7 @@ const Sidebar = () => {
           <ButtonSidebar element={<RiPlayListLine />} title={"Playlist"} />
           <ButtonSidebar element={<BiTime />} title={"Gần đây"} />
         </ul>
-        <div className="create-playlist fixed bottom-0 left-0 border-t-2 w-[240px] h-55px border-gray-500">
+        <div className="create-playlist bg-[#231B2E] fixed bottom-0 left-0 border-t-2 w-[240px] h-55px border-gray-500">
           <ButtonSidebar
             element={<AiOutlinePlus />}
             title={"Tạo playlist mới"}
