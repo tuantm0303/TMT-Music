@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Player from "./components/Player";
 import Sidebar from "./components/Sidebar";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="content flex w-full bg-[#170F23]">
       <Sidebar />
       <Header />
+      <Player />
     </div>
   );
 }
