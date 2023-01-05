@@ -1,13 +1,14 @@
-import Header from "./components/Header";
-import Player from "./components/Player";
-import Sidebar from "./components/Sidebar";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import MyMusic from "./pages/MyMusic";
 
 function App() {
   return (
     <div className="content flex w-full bg-[#170F23]">
-      <Sidebar />
-      <Header />
-      <Player />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/mymusic" element={<MyMusic />} />
+      </Routes>
     </div>
   );
 }
