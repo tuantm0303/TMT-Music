@@ -7,7 +7,7 @@ import Icon from "../Icon";
 
 const Header = () => (
   <>
-    <header className="header h-[70px] px-[60px] items-center flex flex-grow-[1]">
+    <header className="header h-[70px] px-[60px] items-center flex">
       <div className="level flex position z-1 w-full justify-between">
         <div className="level-left items-center flex">
           <div className="back">
