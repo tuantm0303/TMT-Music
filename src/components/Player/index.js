@@ -2,7 +2,7 @@ import React from "react";
 import { BiTimeFive } from "react-icons/bi";
 import { RiMoreFill } from "react-icons/ri";
 import Icon from "../Icon";
-import Song from "../Song";
+import Song from "./components/Song";
 
 const Player = () => {
   return (
