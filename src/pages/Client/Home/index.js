@@ -1,5 +1,5 @@
 import React from "react";
-import Song from "../../components/Player/components/Song";
+import Song from "../../../components/Player/components/Song";
 
 const Home = () => {
   return (

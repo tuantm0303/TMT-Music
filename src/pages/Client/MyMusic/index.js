@@ -1,7 +1,7 @@
 import React from "react";
 import { BsPlayCircle } from "react-icons/bs";
 import { CiMusicNote1 } from "react-icons/ci";
-import Song from "../../components/Player/components/Song";
+import Song from "../../../components/Player/components/Song";
 
 const MyMusic = () => {
   return (
