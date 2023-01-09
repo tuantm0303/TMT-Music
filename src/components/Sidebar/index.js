@@ -19,7 +19,7 @@ const Sidebar = () => {
       <div className="sidebar-divide relative h-[2px] w-10/12 mx-auto bg-gray-500"></div>
       <ul className="sidebar-bottom pt-2">
         <ItemLink location="sidebar_mid" />
-        <div className="premium border-none rounded bg-gradient-to-r from-blue-700 to-purple-800 p-2 mx-6">
+        <div className="premium border-none rounded bg-gradient-to-r from-blue-700 to-purple-800 p-2 my-2 mx-6">
           <div className="title text-center text-xs font-bold">
             Nghe nhạc không quảng cáo cùng kho nhạc VIP
           </div>
