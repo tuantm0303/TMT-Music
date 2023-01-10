@@ -14,6 +14,11 @@ const routes = {
   history: "/mymusic/history",
 
   // Admin
+  dashboard: "/admin",
+  adminUserList: "/admin/user",
+  adminSongList: "/admin/song",
+  adminSongAdd: "/admin/song/add",
+  adminSongEdit: "/admin/song/:id",
 };
 
 export default routes;

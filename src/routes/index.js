@@ -1,4 +1,9 @@
 import config from "../config";
+import Dashboard from "../pages/Admin/Dashboard";
+import AdminSong from "../pages/Admin/Song";
+import AddSong from "../pages/Admin/Song/add";
+import EditSong from "../pages/Admin/Song/edit";
+import AdminUser from "../pages/Admin/User";
 import Category from "../pages/Client/Category";
 import Follow from "../pages/Client/Follow";
 import History from "../pages/Client/History";
@@ -25,4 +30,12 @@ export const publicRoutes = [
   { path: config.routes.song, component: Song },
   { path: config.routes.playlist, component: Playlist },
   { path: config.routes.history, component: History },
+];
+
+export const privateRoutes = [
+  { path: config.routes.dashboard, component: Dashboard },
+  { path: config.routes.adminUserList, component: AdminUser },
+  { path: config.routes.adminSongList, component: AdminSong },
+  { path: config.routes.adminSongAdd, component: AddSong },
+  { path: config.routes.adminSongEdit, component: EditSong },
 ];
