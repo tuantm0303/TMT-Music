@@ -13,33 +13,29 @@ const AdminLayout = ({ children }) => {
     <Layout
       style={{
         minHeight: "100vh",
-        color: "red",
       }}
     >
       <Sider
         collapsible
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
-        style={{ backgroundColor: "#252C47" }}
       >
         <div
           style={{
             height: 32,
             margin: 16,
-            backgroundColor: "#252C47",
           }}
         />
         <MenuAdmin />
       </Sider>
-      <Layout className="site-layout" style={{ backgroundColor: "#1C2039" }}>
+      <Layout className="site-layout">
         <Header
           style={{
             padding: 0,
             background: colorBgContainer,
-            backgroundColor: "#1C2039",
           }}
         />
-        <Content style={{ margin: "0 16px", backgroundColor: "#272A49" }}>
+        <Content style={{ margin: "0 16px" }}>
           <div
             className="content"
             style={{
@@ -53,8 +49,7 @@ const AdminLayout = ({ children }) => {
         <Footer
           style={{
             textAlign: "center",
-            color: "whitesmoke",
-            backgroundColor: "#1C2039",
+            background: colorBgContainer,
           }}
         >
           TMT Music Admin

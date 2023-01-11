@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 * {
-  color: whitesmoke;
   font-size: 14px;
 }

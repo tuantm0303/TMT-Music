@@ -6,7 +6,7 @@ import AdminLayout from "./layouts/AdminLayout";
 
 function App() {
   return (
-    <div className="content flex w-full bg-[#170F23]">
+    <>
       <Routes>
         {publicRoutes.map((route, index) => {
           const Component = route.component;
@@ -52,7 +52,7 @@ function App() {
           );
         })}
       </Routes>
-    </div>
+    </>
   );
 }
 
