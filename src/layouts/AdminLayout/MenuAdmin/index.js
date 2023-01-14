@@ -1,6 +1,7 @@
 import React from "react";
 import { UserOutlined, StockOutlined } from "@ant-design/icons";
 import { GiMusicSpell } from "react-icons/gi";
+import { BiCategoryAlt } from "react-icons/bi";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import config from "../../../config";
@@ -25,6 +26,16 @@ const items = [
     "adminUser",
     <UserOutlined />
   ),
+  getItem("Quản lí thể loại", "adminCategory", <BiCategoryAlt />, [
+    getItem(
+      <Link to={config.routes.adminCategoryList}>Danh sách thể loại</Link>,
+      "adminCategory1"
+    ),
+    getItem(
+      <Link to={config.routes.adminCategoryAdd}>Thêm thể loại</Link>,
+      "adminCategory2"
+    ),
+  ]),
   getItem("Quản lí bài hát", "adminSong", <GiMusicSpell />, [
     getItem(
       <Link to={config.routes.adminSongList}>Danh sách bài hát</Link>,
