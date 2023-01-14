@@ -1,9 +1,11 @@
 import React from "react";
 import { UserOutlined, StockOutlined } from "@ant-design/icons";
 import { GiMusicSpell } from "react-icons/gi";
+import { BiCategoryAlt } from "react-icons/bi";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import config from "../../../config";
+
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -46,9 +48,6 @@ const MenuAdmin = () => {
       mode="inline"
       items={items}
       onClick={onClick}
-      style={{
-        backgroundColor: "#252C47",
-      }}
       defaultOpenKeys={["sub1"]}
     />
   );
