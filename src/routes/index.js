@@ -1,4 +1,7 @@
 import config from "../config";
+import AdminCategory from "../pages/Admin/Category";
+import AddCategory from "../pages/Admin/Category/add";
+import EditCategory from "../pages/Admin/Category/edit";
 import Dashboard from "../pages/Admin/Dashboard";
 import AdminSong from "../pages/Admin/Song";
 import AddSong from "../pages/Admin/Song/add";
@@ -38,4 +41,7 @@ export const privateRoutes = [
   { path: config.routes.adminSongList, component: AdminSong },
   { path: config.routes.adminSongAdd, component: AddSong },
   { path: config.routes.adminSongEdit, component: EditSong },
+  { path: config.routes.adminCategoryList, component: AdminCategory },
+  { path: config.routes.adminCategoryAdd, component: AddCategory },
+  { path: config.routes.adminCategoryEdit, component: EditCategory },
 ];
