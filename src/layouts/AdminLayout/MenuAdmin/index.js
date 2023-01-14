@@ -1,7 +1,6 @@
 import React from "react";
 import { UserOutlined, StockOutlined } from "@ant-design/icons";
 import { GiMusicSpell } from "react-icons/gi";
-import { BiCategoryAlt } from "react-icons/bi";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import config from "../../../config";
@@ -38,16 +37,12 @@ const items = [
   ]),
 ];
 const MenuAdmin = () => {
-  const onClick = (e) => {
-    console.log("click ", e);
-  };
   return (
     <Menu
       theme="dark"
       defaultSelectedKeys={["1"]}
       mode="inline"
       items={items}
-      onClick={onClick}
       defaultOpenKeys={["sub1"]}
     />
   );
