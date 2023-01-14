@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./rootReducer";
-// import reducer from "./rootReducer";
 
 const store = configureStore({
   // DÙNG ĐỂ CẬP NHẬT LẠI GIÁ TRỊ STATE THÔNG QUA ACTION
