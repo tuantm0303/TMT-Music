@@ -8,23 +8,23 @@ export const listCategories = createAsyncThunk(
 
 // export const readCategories = createAsyncThunk(
 //   "categories/read",
-//   async (_) => await categoriesApi.read()
+//   async (id) => await categoriesApi.read(id)
 // );
 
-// export const createCategories = createAsyncThunk(
-//   "categories/add",
-//   async (_) => await categoriesApi.create()
-// );
+export const createCategories = createAsyncThunk(
+  "categories/add",
+  async (data) => await categoriesApi.create(data)
+);
 
-// export const updateCategories = createAsyncThunk(
-//   "categories/list",
-//   async (_) => await categoriesApi.update()
-// );
+export const updateCategories = createAsyncThunk(
+  "categories/update",
+  async (data) => await categoriesApi.update(data)
+);
 
-// export const remoteCategories = createAsyncThunk(
-//   "categories/list",
-//   async (_) => await categoriesApi.remove()
-// );
+export const removeCategories = createAsyncThunk(
+  "categories/remove",
+  async (id) => await categoriesApi.remove(id)
+);
 
 const initialState = {
   categories: [],
@@ -39,6 +39,7 @@ const categoriesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // list
     builder.addCase(listCategories.pending, (state, action) => {
       state.isFetching = true;
       state.isSucess = false;
@@ -48,9 +49,74 @@ const categoriesSlice = createSlice({
       state.isFetching = false;
       state.isSucess = true;
       state.isErr = false;
-      state.categories = action.payload;
+      state.categories = action.payload.data;
     });
     builder.addCase(listCategories.rejected, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = false;
+      state.isErr = true;
+    });
+    // remove
+    builder.addCase(removeCategories.fulfilled, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = true;
+      state.isErr = false;
+      state.categories = state.categories.filter(
+        (item) => item._id !== action.payload.data?.category._id
+      );
+    });
+    builder.addCase(removeCategories.rejected, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = false;
+      state.isErr = true;
+    });
+    // create
+    builder.addCase(createCategories.fulfilled, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = true;
+      state.isErr = false;
+      state.categories.push(action.payload?.data);
+    });
+    builder.addCase(createCategories.rejected, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = false;
+      state.isErr = true;
+    });
+    // read
+    // builder.addCase(readCategories.pending, (state, action) => {
+    //   state.isFetching = true;
+    //   state.isSucess = false;
+    //   state.isErr = false;
+    // });
+    // builder.addCase(readCategories.fulfilled, (state, action) => {
+    //   state.isFetching = false;
+    //   state.isSucess = true;
+    //   state.isErr = false;
+    //   state.category = action.payload.data;
+    // });
+    // builder.addCase(readCategories.rejected, (state, action) => {
+    //   state.isFetching = false;
+    //   state.isSucess = false;
+    //   state.isErr = true;
+    // });
+    // update
+    builder.addCase(updateCategories.pending, (state, action) => {
+      state.isFetching = true;
+      state.isSucess = false;
+      state.isErr = false;
+    });
+    builder.addCase(
+      updateCategories.fulfilled,
+      (state, { payload: { data } }) => {
+        state.isFetching = false;
+        state.isSucess = true;
+        state.isErr = false;
+        state.categories = state.categories.map((category) =>
+          category._id === data._id ? data : category
+        );
+      }
+    );
+    builder.addCase(updateCategories.rejected, (state, action) => {
       state.isFetching = false;
       state.isSucess = false;
       state.isErr = true;
