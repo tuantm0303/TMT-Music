@@ -56,7 +56,7 @@ const AdminCategory = () => {
         >
           <Popconfirm
             title="Xóa"
-            description="Bạn có muốn xóa nó không?"
+            description={`Bạn có muốn xóa "${item.name}" không?`}
             onConfirm={() => handleRemove(item._id)}
             okText="Có"
             cancelText="Không"
