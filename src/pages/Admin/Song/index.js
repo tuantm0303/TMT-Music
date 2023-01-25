@@ -1,7 +1,92 @@
-import React from "react";
+import { Button, Popconfirm, Space, Table } from "antd";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const AdminSong = () => {
-  return <div>AdminSong</div>;
+  const { songs } = useSelector((state) => state.songReducer);
+  const columns = [
+    {
+      title: "#",
+      dataIndex: `stt`,
+      key: "stt",
+    },
+    {
+      title: "Tên",
+      dataIndex: "title",
+      key: "title",
+    },
+    {
+      title: "Ảnh",
+      dataIndex: "image",
+      key: "image",
+      render: (image) => (
+        <img src={image} alt={image} width="50px" height="50px" />
+      ),
+    },
+    {
+      title: "Tác giả",
+      dataIndex: "authorId",
+      key: "authorId",
+    },
+    {
+      title: "Ca sĩ",
+      dataIndex: "singerId",
+      key: "singerId",
+    },
+    {
+      title: "Thể loại",
+      dataIndex: "categoryId",
+      key: "categoryId",
+    },
+    {
+      title: "Hành động",
+      dataIndex: "action",
+      key: "action",
+    },
+  ];
+
+  const data = songs?.map((item, key) => ({
+    key,
+    stt: key + 1,
+    title: item.title,
+    image: item.image,
+    authorId: item.authorId.name,
+    singerId: item.singerId.fullname,
+    categoryId: item.categoryId.name,
+    action: (
+      <Space size="middle">
+        <Button
+          type="primary"
+          style={{ backgroundColor: "yellow", color: "black" }}
+        >
+          <Link to={item._id}>Sửa</Link>
+        </Button>
+        <Button
+          type="primary"
+          style={{ backgroundColor: "red", color: "black" }}
+        >
+          <Popconfirm
+            title="Xóa"
+            description={`Bạn có muốn xóa "${item.title}" không?`}
+            okText="Có"
+            cancelText="Không"
+            style={{ background: "#1677ff" }}
+          >
+            Xóa
+          </Popconfirm>
+        </Button>
+      </Space>
+    ),
+  }));
+
+  return (
+    <>
+      <h2 className="title-page font-bold text-center text-2xl py-5">
+        Danh sách thể loại
+      </h2>
+      <Table columns={columns} dataSource={data} />
+    </>
+  );
 };
 
 export default AdminSong;
