@@ -1,9 +1,18 @@
-import { Button, Popconfirm, Space, Table } from "antd";
-import { useSelector } from "react-redux";
+import { Button, message, Popconfirm, Space, Table } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeSong } from "../../../store/features/songSlice";
 
 const AdminSong = () => {
   const { songs } = useSelector((state) => state.songReducer);
+  const dispatch = useDispatch();
+  const handleRemove = (id) => {
+    dispatch(removeSong(id))
+      .then(() => {
+        return message.success("Xóa thành công!");
+      })
+      .catch(() => message.error("Lỗi!"));
+  };
   const columns = [
     {
       title: "#",
@@ -68,6 +77,7 @@ const AdminSong = () => {
           <Popconfirm
             title="Xóa"
             description={`Bạn có muốn xóa "${item.title}" không?`}
+            onConfirm={() => handleRemove(item._id)}
             okText="Có"
             cancelText="Không"
             style={{ background: "#1677ff" }}
