@@ -11,6 +11,16 @@ export const removeSinger = createAsyncThunk(
   async (id) => await singersApi.remove(id)
 );
 
+export const createSinger = createAsyncThunk(
+  "singer/create",
+  async (data) => await singersApi.create(data)
+);
+
+export const updateSinger = createAsyncThunk(
+  "singer/update",
+  async (data) => await singersApi.update(data)
+);
+
 const initialState = {
   singers: [],
   singer: {},
@@ -56,6 +66,42 @@ const singerSlice = createSlice({
       );
     });
     builder.addCase(removeSinger.rejected, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = false;
+      state.isErr = true;
+    });
+    // create
+    builder.addCase(createSinger.pending, (state, action) => {
+      state.isFetching = true;
+      state.isSucess = false;
+      state.isErr = false;
+    });
+    builder.addCase(createSinger.fulfilled, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = true;
+      state.isErr = false;
+      state.singers.push(action.payload.data);
+    });
+    builder.addCase(createSinger.rejected, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = false;
+      state.isErr = true;
+    });
+    // update
+    builder.addCase(updateSinger.pending, (state, action) => {
+      state.isFetching = true;
+      state.isSucess = false;
+      state.isErr = false;
+    });
+    builder.addCase(updateSinger.fulfilled, (state, { payload: { data } }) => {
+      state.isFetching = false;
+      state.isSucess = true;
+      state.isErr = false;
+      state.singers = state.singers.map((singer) =>
+        singer._id === data._id ? data : singer
+      );
+    });
+    builder.addCase(updateSinger.rejected, (state, action) => {
       state.isFetching = false;
       state.isSucess = false;
       state.isErr = true;
