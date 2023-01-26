@@ -2,6 +2,8 @@ import config from "../config";
 import AdminCategory from "../pages/Admin/Category";
 import FormCategory from "../pages/Admin/Category/form";
 import Dashboard from "../pages/Admin/Dashboard";
+import AdminSinger from "../pages/Admin/Singer";
+import FormSinger from "../pages/Admin/Singer/form";
 import AdminSong from "../pages/Admin/Song";
 import AddSong from "../pages/Admin/Song/add";
 import EditSong from "../pages/Admin/Song/edit";
@@ -43,4 +45,7 @@ export const privateRoutes = [
   { path: config.routes.adminCategoryList, component: AdminCategory },
   { path: config.routes.adminCategoryAdd, component: FormCategory },
   { path: config.routes.adminCategoryEdit, component: FormCategory },
+  { path: config.routes.adminSingerList, component: AdminSinger },
+  { path: config.routes.adminSingerAdd, component: FormSinger },
+  { path: config.routes.adminSingerEdit, component: FormSinger },
 ];
