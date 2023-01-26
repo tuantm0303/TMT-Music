@@ -1,6 +1,7 @@
 import React from "react";
 import { UserOutlined, StockOutlined } from "@ant-design/icons";
 import { GiMusicSpell } from "react-icons/gi";
+import { FaMicrophoneAlt } from "react-icons/fa";
 import { BiCategoryAlt } from "react-icons/bi";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
@@ -44,6 +45,16 @@ const items = [
     getItem(
       <Link to={config.routes.adminSongAdd}>Thêm bài hát</Link>,
       "adminSong2"
+    ),
+  ]),
+  getItem("Quản lí ca sĩ", "adminSinger", <FaMicrophoneAlt />, [
+    getItem(
+      <Link to={config.routes.adminSingerList}>Danh sách ca sĩ</Link>,
+      "adminSinger1"
+    ),
+    getItem(
+      <Link to={config.routes.adminSingerAdd}>Thêm ca sĩ</Link>,
+      "adminSinger2"
     ),
   ]),
 ];

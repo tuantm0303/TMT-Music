@@ -22,6 +22,9 @@ const routes = {
   adminCategoryList: "/admin/category",
   adminCategoryAdd: "/admin/category/add",
   adminCategoryEdit: "/admin/category/:id",
+  adminSingerList: "/admin/singer",
+  adminSingerAdd: "/admin/singer/add",
+  adminSingerEdit: "/admin/singer/:id",
 };
 
 export default routes;
