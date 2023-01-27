@@ -2,6 +2,7 @@ import React from "react";
 import { UserOutlined, StockOutlined } from "@ant-design/icons";
 import { GiMusicSpell } from "react-icons/gi";
 import { FaMicrophoneAlt } from "react-icons/fa";
+import { BsPencil } from "react-icons/bs";
 import { BiCategoryAlt } from "react-icons/bi";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
@@ -55,6 +56,16 @@ const items = [
     getItem(
       <Link to={config.routes.adminSingerAdd}>Thêm ca sĩ</Link>,
       "adminSinger2"
+    ),
+  ]),
+  getItem("Quản lí tác giả", "adminAuthor", <BsPencil />, [
+    getItem(
+      <Link to={config.routes.adminAuthorList}>Danh sách tác giả</Link>,
+      "adminAuthor1"
+    ),
+    getItem(
+      <Link to={config.routes.adminAuthorAdd}>Thêm tác giả</Link>,
+      "adminAuthor2"
     ),
   ]),
 ];

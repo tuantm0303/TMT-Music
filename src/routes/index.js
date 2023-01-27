@@ -1,4 +1,6 @@
 import config from "../config";
+import AdminAuthor from "../pages/Admin/Author";
+import FormAuthor from "../pages/Admin/Author/form";
 import AdminCategory from "../pages/Admin/Category";
 import FormCategory from "../pages/Admin/Category/form";
 import Dashboard from "../pages/Admin/Dashboard";
@@ -48,4 +50,7 @@ export const privateRoutes = [
   { path: config.routes.adminSingerList, component: AdminSinger },
   { path: config.routes.adminSingerAdd, component: FormSinger },
   { path: config.routes.adminSingerEdit, component: FormSinger },
+  { path: config.routes.adminAuthorList, component: AdminAuthor },
+  { path: config.routes.adminAuthorAdd, component: FormAuthor },
+  { path: config.routes.adminAuthorEdit, component: FormAuthor },
 ];

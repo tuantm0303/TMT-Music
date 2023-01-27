@@ -25,6 +25,9 @@ const routes = {
   adminSingerList: "/admin/singer",
   adminSingerAdd: "/admin/singer/add",
   adminSingerEdit: "/admin/singer/:id",
+  adminAuthorList: "/admin/author",
+  adminAuthorAdd: "/admin/author/add",
+  adminAuthorEdit: "/admin/author/:id",
 };
 
 export default routes;
