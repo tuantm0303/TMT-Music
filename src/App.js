@@ -7,12 +7,14 @@ import { useDispatch } from "react-redux";
 import { listCategories } from "./store/features/categorySlice";
 import { listSong } from "./store/features/songSlice";
 import { listSinger } from "./store/features/singerSlice";
+import { listAuthor } from "./store/features/authorSlice";
 
 function App() {
   const dispatch = useDispatch();
   dispatch(listCategories());
   dispatch(listSong());
   dispatch(listSinger());
+  dispatch(listAuthor());
 
   return (
     <>
