@@ -1,16 +1,21 @@
 import { Button, message, Popconfirm, Space, Table } from "antd";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { removeAuthor } from "../../../store/features/authorSlice";
+import { authorsApi } from "../../../services/author";
 
 const AdminAuthor = () => {
-  const { authors } = useSelector((state) => state.authorReducer);
-  const dispatch = useDispatch();
+  const [authors, setAuthors] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const { data } = await authorsApi.list();
+      setAuthors(data);
+    })();
+  }, []);
+
   const handleRemove = (id) => {
-    dispatch(removeAuthor(id))
-      .then(() => message.success("Xóa thành công!"))
-      .catch(() => message.error("Lỗi!"));
+    authorsApi.remove(id);
+    setAuthors(authors.filter((item) => id !== item._id));
+    message.success("Xóa thành công!");
   };
 
   const columns = [
