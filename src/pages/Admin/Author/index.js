@@ -1,10 +1,17 @@
-import { Button, Popconfirm, Space, Table } from "antd";
+import { Button, message, Popconfirm, Space, Table } from "antd";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeAuthor } from "../../../store/features/authorSlice";
 
 const AdminAuthor = () => {
   const { authors } = useSelector((state) => state.authorReducer);
+  const dispatch = useDispatch();
+  const handleRemove = (id) => {
+    dispatch(removeAuthor(id))
+      .then(() => message.success("Xóa thành công!"))
+      .catch(() => message.error("Lỗi!"));
+  };
 
   const columns = [
     {
@@ -43,7 +50,7 @@ const AdminAuthor = () => {
           <Popconfirm
             title="Xóa"
             description={`Bạn có muốn xóa "${item.name}" không?`}
-            // onConfirm={() => handleRemove(item._id)}
+            onConfirm={() => handleRemove(item._id)}
             okText="Có"
             cancelText="Không"
             style={{ background: "#1677ff" }}
