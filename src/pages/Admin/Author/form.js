@@ -23,8 +23,6 @@ const FormAuthor = () => {
 
   // update
   const edit = async (author) => {
-    console.log(id);
-    console.log(author);
     await authorsApi.update({ ...author, _id: id });
   };
 
