@@ -57,11 +57,11 @@ const AdminSong = () => {
   const data = songs?.map((item, key) => ({
     key,
     stt: key + 1,
-    title: item.title,
-    image: item.image,
-    authorId: item.authorId.name,
-    singerId: item.singerId.fullname,
-    categoryId: item.categoryId.name,
+    title: item?.title,
+    image: item?.image,
+    authorId: item?.authorId?.name,
+    singerId: item?.singerId?.fullname,
+    categoryId: item?.categoryId?.name,
     action: (
       <Space size="middle">
         <Button
@@ -92,7 +92,7 @@ const AdminSong = () => {
   return (
     <>
       <h2 className="title-page font-bold text-center text-2xl py-5">
-        Danh sách thể loại
+        Danh sách bài hát
       </h2>
       <Table columns={columns} dataSource={data} />
     </>
