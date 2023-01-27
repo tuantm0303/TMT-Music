@@ -31,15 +31,15 @@ const authorSlice = createSlice({
       state.isErr = false;
     });
     builder.addCase(listAuthor.fulfilled, (state, action) => {
-      state.isFetching = true;
-      state.isSucess = false;
+      state.isFetching = false;
+      state.isSucess = true;
       state.isErr = false;
       state.authors = action.payload.data;
     });
     builder.addCase(listAuthor.rejected, (state, action) => {
-      state.isFetching = true;
+      state.isFetching = false;
       state.isSucess = false;
-      state.isErr = false;
+      state.isErr = true;
     });
     // remove
     builder.addCase(removeAuthor.pending, (state, action) => {
