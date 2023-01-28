@@ -9,6 +9,8 @@ const FormAuthor = () => {
   // add
   const add = async (data) => {
     await authorsApi.create(data);
+    message.success("Thêm thành công!");
+    navigate(config.routes.adminAuthorList);
   };
 
   // read
@@ -24,17 +26,15 @@ const FormAuthor = () => {
   // update
   const edit = async (author) => {
     await authorsApi.update({ ...author, _id: id });
+    message.success("Sửa thành công!");
+    navigate(config.routes.adminAuthorList);
   };
 
   const onFinish = (data) => {
     if (!id) {
       add(data);
-      navigate(config.routes.adminAuthorList);
-      message.success("Thêm thành công!");
     } else {
       edit(data);
-      navigate(config.routes.adminAuthorList);
-      message.success("Sửa thành công!");
     }
   };
 
