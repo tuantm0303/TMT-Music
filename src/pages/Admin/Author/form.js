@@ -41,7 +41,7 @@ const FormAuthor = () => {
   if (!id) {
     return (
       <>
-        <h1 className="text-center my-5">Thêm thể loại</h1>
+        <h1 className="text-center my-5">Thêm tác giả</h1>
         <Form
           name="basic"
           labelCol={{
@@ -54,12 +54,12 @@ const FormAuthor = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            label="Tên thể loại"
+            label="Tên tác giả"
             name="name"
             rules={[
               {
                 required: true,
-                message: "Bắt buộc phải nhập tên thể loại!",
+                message: "Bắt buộc phải nhập tên tác giả!",
               },
               {
                 min: 2,
@@ -90,7 +90,7 @@ const FormAuthor = () => {
   } else {
     return Object.keys(author).length ? (
       <>
-        <h1 className="text-center my-5">Sửa thể loại</h1>
+        <h1 className="text-center my-5">Sửa tác giả</h1>
         <Form
           name="basic"
           labelCol={{
@@ -104,12 +104,12 @@ const FormAuthor = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            label="Tên thể loại"
+            label="Tên tác giả"
             name="name"
             rules={[
               {
                 required: true,
-                message: "Bắt buộc phải nhập tên thể loại!",
+                message: "Bắt buộc phải nhập tên tác giả!",
               },
               {
                 min: 2,
