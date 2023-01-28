@@ -20,7 +20,7 @@ const FormAuthor = () => {
     (async (id) => {
       const { data } = await authorsApi.read(id);
       setAuthor(data);
-    })(id ? undefined : "");
+    })(id ? id : "");
   }, [id]);
 
   // update

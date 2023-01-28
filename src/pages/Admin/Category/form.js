@@ -29,7 +29,7 @@ const FormCategory = () => {
     (async (id) => {
       const { data } = await categoriesApi.read(id);
       setCategory(data);
-    })(id ? undefined : "");
+    })(id ? id : "");
   }, [id]);
 
   //update

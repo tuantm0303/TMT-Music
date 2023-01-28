@@ -40,7 +40,7 @@ const FormSinger = () => {
     (async (id) => {
       const { data } = await singersApi.read(id);
       setSinger(data);
-    })(id ? undefined : "");
+    })(id ? id : "");
   }, [id]);
 
   // update
