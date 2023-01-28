@@ -9,7 +9,7 @@ import {
 } from "../../../store/features/singerSlice";
 import { singersApi } from "../../../services/singer";
 
-const FormSinger = () => {
+const FormSong = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const FormSinger = () => {
   };
 
   // create
-  const addSinger = (data) => {
+  const add = (data) => {
     dispatch(createSinger(data))
       .unwrap()
       .then(() => navigate(config.routes.adminSingerList))
@@ -44,7 +44,7 @@ const FormSinger = () => {
   }, [id]);
 
   // update
-  const editSinger = (data) => {
+  const edit = (data) => {
     dispatch(updateSinger({ ...data, _id: id }))
       .unwrap()
       .then(() => navigate(config.routes.adminSingerList))
@@ -54,16 +54,16 @@ const FormSinger = () => {
 
   const onFinish = (data) => {
     if (!id) {
-      addSinger(data);
+      add(data);
     } else {
-      editSinger(data);
+      edit(data);
     }
   };
 
   if (!id) {
     return (
       <>
-        <h1 className="text-center my-5">Thêm ca sĩ</h1>
+        <h1 className="text-center my-5">Thêm bài hát</h1>
         <Form
           name="basic"
           labelCol={{
@@ -77,13 +77,13 @@ const FormSinger = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            label="Tên ca sĩ"
+            label="Tên bài hát"
             name="fullname"
             rules={[
               { required: true },
               {
                 min: 2,
-                message: "Tên ca sĩ bắt buộc phải nhập trên 2 kí tự!",
+                message: "Tên thể loại bắt buộc phải nhập trên 2 kí tự!",
               },
             ]}
           >
@@ -134,7 +134,7 @@ const FormSinger = () => {
   } else {
     return Object.keys(singer).length ? (
       <>
-        <h1 className="text-center my-5">Sửa ca sĩ</h1>
+        <h1 className="text-center my-5">Sửa bài hát</h1>
         <Form
           name="basic"
           labelCol={{
@@ -149,13 +149,13 @@ const FormSinger = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            label="Tên ca sĩ"
+            label="Tên bài hát"
             name="fullname"
             rules={[
               { required: true },
               {
                 min: 2,
-                message: "Tên ca sĩ bắt buộc phải nhập trên 2 kí tự!",
+                message: "Tên thể loại bắt buộc phải nhập trên 2 kí tự!",
               },
             ]}
           >
@@ -206,4 +206,4 @@ const FormSinger = () => {
   }
 };
 
-export default FormSinger;
+export default FormSong;

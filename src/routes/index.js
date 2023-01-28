@@ -7,8 +7,7 @@ import Dashboard from "../pages/Admin/Dashboard";
 import AdminSinger from "../pages/Admin/Singer";
 import FormSinger from "../pages/Admin/Singer/form";
 import AdminSong from "../pages/Admin/Song";
-import AddSong from "../pages/Admin/Song/add";
-import EditSong from "../pages/Admin/Song/edit";
+import FormSong from "../pages/Admin/Song/form";
 import AdminUser from "../pages/Admin/User";
 import Category from "../pages/Client/Category";
 import Follow from "../pages/Client/Follow";
@@ -42,8 +41,8 @@ export const privateRoutes = [
   { path: config.routes.dashboard, component: Dashboard },
   { path: config.routes.adminUserList, component: AdminUser },
   { path: config.routes.adminSongList, component: AdminSong },
-  { path: config.routes.adminSongAdd, component: AddSong },
-  { path: config.routes.adminSongEdit, component: EditSong },
+  { path: config.routes.adminSongAdd, component: FormSong },
+  { path: config.routes.adminSongEdit, component: FormSong },
   { path: config.routes.adminCategoryList, component: AdminCategory },
   { path: config.routes.adminCategoryAdd, component: FormCategory },
   { path: config.routes.adminCategoryEdit, component: FormCategory },
