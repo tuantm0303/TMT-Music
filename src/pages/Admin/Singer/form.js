@@ -13,6 +13,7 @@ const FormSinger = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  /* eslint-disable no-template-curly-in-string */
   const validateMessages = {
     required: "Bắt buộc phải nhập ${label}!",
     types: {
