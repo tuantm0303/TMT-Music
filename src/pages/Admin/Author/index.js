@@ -13,9 +13,11 @@ const AdminAuthor = () => {
   }, []);
 
   const handleRemove = (id) => {
-    authorsApi.remove(id);
-    setAuthors(authors.filter((item) => id !== item._id));
-    message.success("Xóa thành công!");
+    authorsApi
+      .remove(id)
+      .then(() => setAuthors(authors.filter((item) => id !== item._id)))
+      .then(() => message.success("Xóa thành công!"))
+      .catch(() => message.error("Lỗi!"));
   };
 
   const columns = [

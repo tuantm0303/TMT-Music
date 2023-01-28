@@ -1,4 +1,4 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -14,9 +14,12 @@ const FormCategory = () => {
   const dispatch = useDispatch();
 
   // create
-  const addCategory = async (data) => {
-    dispatch(createCategories(data));
-    navigate(config.routes.adminCategoryList);
+  const addCategory = (data) => {
+    dispatch(createCategories(data))
+      .unwrap()
+      .then(() => navigate(config.routes.adminCategoryList))
+      .then(() => message.success("Thêm thành công!"))
+      .catch(() => message.error("Lỗi!"));
   };
 
   // read
@@ -26,13 +29,16 @@ const FormCategory = () => {
     (async (id) => {
       const { data } = await categoriesApi.read(id);
       setCategory(data);
-    })(id);
+    })(id ? undefined : "");
   }, [id]);
 
   //update
   const editCategories = async (data) => {
-    dispatch(updateCategories({ ...data, _id: id }));
-    navigate(config.routes.adminCategoryList);
+    dispatch(updateCategories({ ...data, _id: id }))
+      .unwrap()
+      .then(() => navigate(config.routes.adminCategoryList))
+      .then(() => message.success("Sửa thành công!"))
+      .catch(() => message.error("Lỗi!"));
   };
 
   const onFinish = (data) => {

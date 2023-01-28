@@ -25,9 +25,11 @@ const FormSinger = () => {
 
   // create
   const addSinger = (data) => {
-    dispatch(createSinger(data));
-    message.success("Thêm ca sĩ thành công!");
-    navigate(config.routes.adminSingerList);
+    dispatch(createSinger(data))
+      .unwrap()
+      .then(() => navigate(config.routes.adminSingerList))
+      .then(() => message.success("Sửa thành công!"))
+      .catch(() => message.error("Lỗi!"));
   };
 
   // read
@@ -37,14 +39,16 @@ const FormSinger = () => {
     (async (id) => {
       const { data } = await singersApi.read(id);
       setSinger(data);
-    })(id);
+    })(id ? undefined : "");
   }, [id]);
 
   // update
   const editSinger = (data) => {
-    dispatch(updateSinger({ ...data, _id: id }));
-    message.success("Sửa ca sĩ thành công!");
-    navigate(config.routes.adminSingerList);
+    dispatch(updateSinger({ ...data, _id: id }))
+      .unwrap()
+      .then(() => navigate(config.routes.adminSingerList))
+      .then(() => message.success("Sửa thành công!"))
+      .catch(() => message.error("Lỗi!"));
   };
 
   const onFinish = (data) => {

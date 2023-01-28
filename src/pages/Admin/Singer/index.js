@@ -9,6 +9,7 @@ const AdminSinger = () => {
   const dispatch = useDispatch();
   const handleRemove = (id) => {
     dispatch(removeSinger(id))
+      .unwrap()
       .then(() => message.success("Xóa thành công!"))
       .catch(() => message.error("Lỗi!"));
   };

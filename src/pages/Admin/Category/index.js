@@ -9,9 +9,8 @@ const AdminCategory = () => {
   const dispatch = useDispatch();
   const handleRemove = (id) => {
     dispatch(removeCategories(id))
-      .then(() => {
-        return message.success("Xóa thành công!");
-      })
+      .unwrap()
+      .then(() => message.success("Xóa thành công!"))
       .catch(() => message.error("Lỗi!"));
   };
   const columns = [
