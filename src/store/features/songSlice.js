@@ -11,6 +11,11 @@ export const removeSong = createAsyncThunk(
   async (id) => await songsApi.remove(id)
 );
 
+export const createSong = createAsyncThunk(
+  "songs/create",
+  async (data) => await songsApi.create(data)
+);
+
 const initialState = {
   songs: [],
   song: {},
@@ -56,6 +61,23 @@ const songSlice = createSlice({
       );
     });
     builder.addCase(removeSong.rejected, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = false;
+      state.isErr = true;
+    });
+    // create
+    builder.addCase(createSong.pending, (state, action) => {
+      state.isFetching = true;
+      state.isSucess = false;
+      state.isErr = false;
+    });
+    builder.addCase(createSong.fulfilled, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = true;
+      state.isErr = false;
+      state.songs.push(action.payload.data);
+    });
+    builder.addCase(createSong.rejected, (state, action) => {
       state.isFetching = false;
       state.isSucess = false;
       state.isErr = true;

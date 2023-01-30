@@ -1,11 +1,15 @@
 import { Button, message, Popconfirm, Space, Table } from "antd";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeSong } from "../../../store/features/songSlice";
+import { listSong, removeSong } from "../../../store/features/songSlice";
 
 const AdminSong = () => {
   const { songs } = useSelector((state) => state.songReducer);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(listSong());
+  }, [dispatch]);
   const handleRemove = (id) => {
     dispatch(removeSong(id))
       .unwrap()
