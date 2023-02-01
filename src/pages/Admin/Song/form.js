@@ -1,14 +1,10 @@
 import { Button, Form, Input, message } from "antd";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import TextArea from "antd/es/input/TextArea";
 import config from "../../../config";
-import {
-  createSong,
-  readSong,
-  updateSong,
-} from "../../../store/features/songSlice";
+import { createSong, updateSong } from "../../../store/features/songSlice";
 import { songsApi } from "../../../services/song";
 import SelectOptions from "./components/SelectOptions";
 
@@ -45,14 +41,6 @@ const FormSong = () => {
       setSong(data);
     })(id ? id : "");
   }, [id]);
-
-  // const { song } = useSelector((state) => state.songReducer);
-  // useEffect(() => {
-  //   if (id) {
-  //     dispatch(readSong(id));
-  //     console.log(song);
-  //   }
-  // }, [dispatch, id]);
 
   // update
   const edit = (data) => {
