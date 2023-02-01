@@ -43,27 +43,30 @@ const AdminCategory = () => {
     description: item.description,
     action: (
       <Space size="middle">
-        <Button
-          type="primary"
-          style={{ backgroundColor: "yellow", color: "black" }}
+        <Link to={item._id}>
+          <Button
+            type="primary"
+            style={{ backgroundColor: "yellow", color: "black" }}
+          >
+            Sửa
+          </Button>
+        </Link>
+
+        <Popconfirm
+          title="Xóa"
+          description={`Bạn có muốn xóa "${item.name}" không?`}
+          onConfirm={() => handleRemove(item._id)}
+          okText="Có"
+          cancelText="Không"
+          style={{ background: "#1677ff" }}
         >
-          <Link to={item._id}>Sửa</Link>
-        </Button>
-        <Button
-          type="primary"
-          style={{ backgroundColor: "red", color: "black" }}
-        >
-          <Popconfirm
-            title="Xóa"
-            description={`Bạn có muốn xóa "${item.name}" không?`}
-            onConfirm={() => handleRemove(item._id)}
-            okText="Có"
-            cancelText="Không"
-            style={{ background: "#1677ff" }}
+          <Button
+            type="primary"
+            style={{ backgroundColor: "red", color: "black" }}
           >
             Xóa
-          </Popconfirm>
-        </Button>
+          </Button>
+        </Popconfirm>
       </Space>
     ),
   }));
