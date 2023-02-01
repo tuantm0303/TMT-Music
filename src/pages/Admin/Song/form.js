@@ -1,10 +1,14 @@
 import { Button, Form, Input, message } from "antd";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import TextArea from "antd/es/input/TextArea";
 import config from "../../../config";
-import { createSong } from "../../../store/features/songSlice";
+import {
+  createSong,
+  readSong,
+  updateSong,
+} from "../../../store/features/songSlice";
 import { songsApi } from "../../../services/song";
 import SelectOptions from "./components/SelectOptions";
 
@@ -42,21 +46,29 @@ const FormSong = () => {
     })(id ? id : "");
   }, [id]);
 
+  // const { song } = useSelector((state) => state.songReducer);
+  // useEffect(() => {
+  //   if (id) {
+  //     dispatch(readSong(id));
+  //     console.log(song);
+  //   }
+  // }, [dispatch, id]);
+
   // update
-  // const edit = (data) => {
-  //   dispatch(updateSinger({ ...data, _id: id }))
-  //     .unwrap()
-  //     .then(() => navigate(config.routes.adminSingerList))
-  //     .then(() => message.success("Sửa thành công!"))
-  //     .catch(() => message.error("Lỗi!"));
-  // };
+  const edit = (data) => {
+    dispatch(updateSong({ ...data, _id: id }))
+      .unwrap()
+      .then(() => navigate(config.routes.adminSongList))
+      .then(() => message.success("Sửa thành công!"))
+      .catch(() => message.error("Lỗi!"));
+  };
 
   const onFinish = (data) => {
-    // if (!id) {
-    add(data);
-    // } else {
-    //   edit(data);
-    // }
+    if (!id) {
+      add(data);
+    } else {
+      edit(data);
+    }
   };
 
   if (!id) {
@@ -132,7 +144,12 @@ const FormSong = () => {
           autoComplete="off"
           validateMessages={validateMessages}
           onFinish={onFinish}
-          initialValues={song}
+          initialValues={{
+            ...song,
+            categoryId: song.categoryId._id,
+            authorId: song.authorId._id,
+            singerId: song.singerId._id,
+          }}
         >
           <Form.Item
             label="Tên bài hát"

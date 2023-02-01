@@ -16,6 +16,16 @@ export const createSong = createAsyncThunk(
   async (data) => await songsApi.create(data)
 );
 
+// export const readSong = createAsyncThunk(
+//   "songs/read",
+//   async (id) => await songsApi.read(id)
+// );
+
+export const updateSong = createAsyncThunk(
+  "songs/update",
+  async (id) => await songsApi.update(id)
+);
+
 const initialState = {
   songs: [],
   song: {},
@@ -78,6 +88,42 @@ const songSlice = createSlice({
       state.songs.push(action.payload.data);
     });
     builder.addCase(createSong.rejected, (state, action) => {
+      state.isFetching = false;
+      state.isSucess = false;
+      state.isErr = true;
+    });
+    // read
+    // builder.addCase(readSong.pending, (state, action) => {
+    //   state.isFetching = true;
+    //   state.isSucess = false;
+    //   state.isErr = false;
+    // });
+    // builder.addCase(readSong.fulfilled, (state, action) => {
+    //   state.isFetching = false;
+    //   state.isSucess = true;
+    //   state.isErr = false;
+    //   state.song = action.payload.data;
+    // });
+    // builder.addCase(readSong.rejected, (state, action) => {
+    //   state.isFetching = false;
+    //   state.isSucess = false;
+    //   state.isErr = true;
+    // });
+    // update
+    builder.addCase(updateSong.pending, (state, action) => {
+      state.isFetching = true;
+      state.isSucess = false;
+      state.isErr = false;
+    });
+    builder.addCase(updateSong.fulfilled, (state, { payload: { data } }) => {
+      state.isFetching = false;
+      state.isSucess = true;
+      state.isErr = false;
+      state.songs = state.songs.map((song) =>
+        song._id === data._id ? data : song
+      );
+    });
+    builder.addCase(updateSong.rejected, (state, action) => {
       state.isFetching = false;
       state.isSucess = false;
       state.isErr = true;
