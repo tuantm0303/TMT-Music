@@ -1,20 +1,23 @@
-import { Button, Form, Input, message } from "antd";
+import { Button, Form, Input, message, Upload } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { UploadOutlined } from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
 import config from "../../../config";
 import { createSong, updateSong } from "../../../store/features/songSlice";
 import { songsApi } from "../../../services/song";
 import SelectOptions from "./components/SelectOptions";
+import { handleUpdateFile, handleUploadFile } from "../../../utils/upload";
 
 const FormSong = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [file, setFile] = useState(null);
 
   /* eslint-disable no-template-curly-in-string */
   const validateMessages = {
-    required: "Bắt buộc phải nhập ${label}!",
+    required: "Bắt buộc phải có ${label}!",
     types: {
       number: "${label} phải là một số!",
     },
@@ -38,6 +41,7 @@ const FormSong = () => {
   useEffect(() => {
     (async (id) => {
       const { data } = await songsApi.read(id);
+      console.log(data);
       setSong(data);
     })(id ? id : "");
   }, [id]);
@@ -51,14 +55,20 @@ const FormSong = () => {
       .catch(() => message.error("Lỗi!"));
   };
 
-  const onFinish = (data) => {
+  const onFinish = async (data) => {
     if (!id) {
-      add(data);
+      const image = await handleUploadFile(file);
+      add({ ...data, image });
     } else {
-      edit(data);
+      const image = await handleUpdateFile(file);
+      edit({ ...data, image });
     }
   };
 
+  const handleChange = async (e) => {
+    const { originFileObj: file } = e.file;
+    setFile(file);
+  };
   if (!id) {
     return (
       <>
@@ -89,7 +99,9 @@ const FormSong = () => {
             <Input />
           </Form.Item>
           <Form.Item label="Ảnh" name="image" rules={[{ required: true }]}>
-            <Input />
+            <Upload onChange={handleChange} listType="picture">
+              <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
+            </Upload>
           </Form.Item>
           <SelectOptions />
           <Form.Item
@@ -153,7 +165,14 @@ const FormSong = () => {
             <Input />
           </Form.Item>
           <Form.Item label="Ảnh" name="image" rules={[{ required: true }]}>
-            <Input />
+            <Upload onChange={handleChange} listType="picture">
+              <img
+                src={song.image}
+                alt={song.image}
+                style={{ width: "50px" }}
+              />
+              <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
+            </Upload>
           </Form.Item>
           <SelectOptions />
           <Form.Item
