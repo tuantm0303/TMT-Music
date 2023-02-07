@@ -8,12 +8,13 @@ import config from "../../../config";
 import { createSong, updateSong } from "../../../store/features/songSlice";
 import { songsApi } from "../../../services/song";
 import SelectOptions from "./components/SelectOptions";
-import { handleUpdateFile, handleUploadFile } from "../../../utils/upload";
+import { handleUploadFile } from "../../../utils/upload";
 
 const FormSong = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [file, setFile] = useState(null);
+  const [fileImage, setFileImage] = useState(null);
+  const [fileAudio, setFileAudio] = useState(null);
 
   /* eslint-disable no-template-curly-in-string */
   const validateMessages = {
@@ -41,7 +42,6 @@ const FormSong = () => {
   useEffect(() => {
     (async (id) => {
       const { data } = await songsApi.read(id);
-      console.log(data);
       setSong(data);
     })(id ? id : "");
   }, [id]);
@@ -57,18 +57,26 @@ const FormSong = () => {
 
   const onFinish = async (data) => {
     if (!id) {
-      const image = await handleUploadFile(file);
-      add({ ...data, image });
+      const image = await handleUploadFile(fileImage);
+      const audio = await handleUploadFile(fileAudio, "video");
+      add({ ...data, image, audio });
     } else {
-      const image = await handleUpdateFile(file);
-      edit({ ...data, image });
+      edit(data, { ...song });
+      const image = await handleUploadFile(fileImage);
+      const audio = await handleUploadFile(fileAudio, "video");
+      edit({ ...data, image, audio });
     }
   };
 
-  const handleChange = async (e) => {
+  const handleChangeImage = async (e) => {
     const { originFileObj: file } = e.file;
-    setFile(file);
+    setFileImage(file);
   };
+  const handleChangeAudio = async (e) => {
+    const { originFileObj: file } = e.file;
+    setFileAudio(file);
+  };
+
   if (!id) {
     return (
       <>
@@ -99,8 +107,13 @@ const FormSong = () => {
             <Input />
           </Form.Item>
           <Form.Item label="Ảnh" name="image" rules={[{ required: true }]}>
-            <Upload onChange={handleChange} listType="picture">
+            <Upload onChange={handleChangeImage} listType="picture">
               <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
+            </Upload>
+          </Form.Item>
+          <Form.Item label="audio" name="audio" rules={[{ required: true }]}>
+            <Upload onChange={handleChangeAudio} listType="picture">
+              <Button icon={<UploadOutlined />}>Tải audio lên</Button>
             </Upload>
           </Form.Item>
           <SelectOptions />
@@ -165,13 +178,21 @@ const FormSong = () => {
             <Input />
           </Form.Item>
           <Form.Item label="Ảnh" name="image" rules={[{ required: true }]}>
-            <Upload onChange={handleChange} listType="picture">
+            <Upload onChange={handleChangeImage} listType="picture">
               <img
                 src={song.image}
                 alt={song.image}
                 style={{ width: "50px" }}
               />
               <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
+            </Upload>
+          </Form.Item>
+          <Form.Item label="Audio" name="audio" rules={[{ required: true }]}>
+            <Upload onChange={handleChangeAudio} listType="picture">
+              <audio controls style={{ width: "300px" }}>
+                <source src={song.audio} type="video/mp4" />
+              </audio>
+              <Button icon={<UploadOutlined />}>Tải audio lên</Button>
             </Upload>
           </Form.Item>
           <SelectOptions />

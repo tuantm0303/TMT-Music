@@ -36,6 +36,16 @@ const AdminSong = () => {
       ),
     },
     {
+      title: "Audio",
+      dataIndex: "audio",
+      key: "audio",
+      render: (audio) => (
+        <audio controls style={{ width: "300px" }}>
+          <source src={audio} type="video/mp4" />
+        </audio>
+      ),
+    },
+    {
       title: "Tác giả",
       dataIndex: "authorId",
       key: "authorId",
@@ -62,6 +72,7 @@ const AdminSong = () => {
     stt: key + 1,
     title: item?.title,
     image: item?.image,
+    audio: item?.audio,
     authorId: item?.authorId?.name,
     singerId: item?.singerId?.fullname,
     categoryId: item?.categoryId?.name,
