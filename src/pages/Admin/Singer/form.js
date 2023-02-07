@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber, message } from "antd";
+import { Button, Form, Input, InputNumber, message, Upload } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,8 +8,11 @@ import {
   updateSinger,
 } from "../../../store/features/singerSlice";
 import { singersApi } from "../../../services/singer";
+import { handleUploadFile } from "../../../utils/upload";
+import { UploadOutlined } from "@ant-design/icons";
 
 const FormSinger = () => {
+  const [file, setFile] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -29,7 +32,7 @@ const FormSinger = () => {
     dispatch(createSinger(data))
       .unwrap()
       .then(() => navigate(config.routes.adminSingerList))
-      .then(() => message.success("Sửa thành công!"))
+      .then(() => message.success("Thêm thành công!"))
       .catch(() => message.error("Lỗi!"));
   };
 
@@ -52,14 +55,21 @@ const FormSinger = () => {
       .catch(() => message.error("Lỗi!"));
   };
 
-  const onFinish = (data) => {
+  const onFinish = async (data) => {
     if (!id) {
-      addSinger(data);
+      const image = await handleUploadFile(file);
+      addSinger({ ...data, image });
     } else {
-      editSinger(data);
+      editSinger(data, { ...singer });
+      const image = await handleUploadFile(file);
+      editSinger({ ...data, image });
     }
   };
 
+  const handleChange = async (e) => {
+    const { originFileObj: file } = e.file;
+    setFile(file);
+  };
   if (!id) {
     return (
       <>
@@ -104,7 +114,9 @@ const FormSinger = () => {
             <Input />
           </Form.Item>
           <Form.Item label="Ảnh" name="image" rules={[{ required: true }]}>
-            <Input />
+            <Upload onChange={handleChange} listType="picture">
+              <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
+            </Upload>
           </Form.Item>
           <Form.Item
             label="Mô tả"
@@ -176,7 +188,14 @@ const FormSinger = () => {
             <Input />
           </Form.Item>
           <Form.Item label="Ảnh" name="image" rules={[{ required: true }]}>
-            <Input />
+            <Upload onChange={handleChange} listType="picture">
+              <img
+                src={singer.image}
+                alt={singer.image}
+                style={{ width: "50px" }}
+              />
+              <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
+            </Upload>
           </Form.Item>
           <Form.Item
             label="Mô tả"

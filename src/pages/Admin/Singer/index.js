@@ -31,11 +31,6 @@ const AdminSinger = () => {
       key: "age",
     },
     {
-      title: "Quốc gia",
-      dataIndex: "country",
-      key: "country",
-    },
-    {
       title: "Ảnh",
       dataIndex: "image",
       key: "image",
@@ -44,9 +39,9 @@ const AdminSinger = () => {
       ),
     },
     {
-      title: "Mô tả",
-      dataIndex: "description",
-      key: "description",
+      title: "Quốc gia",
+      dataIndex: "country",
+      key: "country",
     },
     {
       title: "Hành động",
@@ -60,9 +55,8 @@ const AdminSinger = () => {
     stt: key + 1,
     fullname: item.fullname,
     age: item.age,
-    country: item.country,
     image: item.image,
-    description: item.description,
+    country: item.country,
     action: (
       <Space size="middle">
         <Link to={item._id}>
