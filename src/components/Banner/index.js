@@ -17,7 +17,7 @@ const Banner = () => {
     slidesToShow: 3,
   };
   return (
-    <div className="banner w-[1018px]">
+    <div className="banner w-[1048px]">
       <Box m="20">
         <Box
           sx={{
