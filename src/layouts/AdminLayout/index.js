@@ -33,7 +33,7 @@ const AdminLayout = ({ children }) => {
             <img
               src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg"
               alt=""
-              class="w-full"
+              className="w-full"
             />
           </Link>
         </div>

@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber, message, Upload } from "antd";
+import { Button, Form, Input, message, Upload } from "antd";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UploadOutlined } from "@ant-design/icons";
