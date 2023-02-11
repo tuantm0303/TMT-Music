@@ -1,34 +1,12 @@
 import React from "react";
 import Song from "../../../components/Player/components/Song";
+import Banner from "../../../components/Banner";
 
 const Home = () => {
   return (
     <>
       <main className="main-board pt-8 px-10">
-        <div className="slider flex justify-between">
-          <div className="img-slider">
-            <img
-              src="https://photo-zmp3.zmdcdn.me/banner/1/0/7/3/107367e8de4ee33474d8fb33811c66bf.jpg"
-              alt=""
-              className="w-[319px] h-[179px] rounded-2xl"
-            />
-          </div>
-          <div className="img-slider">
-            <img
-              src="https://photo-zmp3.zmdcdn.me/banner/2/c/1/6/2c16d9e4b5189c7712f50360ab7ac7a9.jpg"
-              alt=""
-              className="w-[319px] h-[179px] rounded-2xl"
-            />
-          </div>
-          <div className="img-slider">
-            <img
-              src="https://photo-zmp3.zmdcdn.me/banner/4/d/d/5/4dd57b69bed51c2da8b50716b697677e.jpg"
-              alt=""
-              className="w-[319px] h-[179px] rounded-2xl"
-            />
-          </div>
-        </div>
-
+        <Banner />
         <div className="playlist pt-10">
           <h3 className="title font-bold text-xl">Có Thể Bạn Muốn Nghe</h3>
           <div className="container-playlist flex justify-between pt-5">
