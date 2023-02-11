@@ -3,7 +3,7 @@ import { UserOutlined, StockOutlined } from "@ant-design/icons";
 import { GiMusicSpell } from "react-icons/gi";
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { BsPencil } from "react-icons/bs";
-import { BiCategoryAlt } from "react-icons/bi";
+import { BiCarousel, BiCategoryAlt } from "react-icons/bi";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import config from "../../../config";
@@ -66,6 +66,16 @@ const items = [
     getItem(
       <Link to={config.routes.adminAuthorAdd}>Thêm tác giả</Link>,
       "adminAuthor2"
+    ),
+  ]),
+  getItem("Quản lí slide", "adminSlide", <BiCarousel />, [
+    getItem(
+      <Link to={config.routes.adminSlideList}>Danh sách slide</Link>,
+      "adminSlide1"
+    ),
+    getItem(
+      <Link to={config.routes.adminSlideAdd}>Thêm slide</Link>,
+      "adminSlide2"
     ),
   ]),
 ];

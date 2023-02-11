@@ -28,6 +28,9 @@ const routes = {
   adminAuthorList: "/admin/author",
   adminAuthorAdd: "/admin/author/add",
   adminAuthorEdit: "/admin/author/:id",
+  adminSlideList: "/admin/slide",
+  adminSlideAdd: "/admin/slide/add",
+  adminSlideEdit: "/admin/slide/:id",
 };
 
 export default routes;
