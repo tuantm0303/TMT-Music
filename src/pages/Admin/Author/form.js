@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import config from "../../../config";
 import { authorsApi } from "../../../services/author";
+import { validateMessages } from "../../../utils/validationForm";
 
 const FormAuthor = () => {
   const navigate = useNavigate();
@@ -51,6 +52,7 @@ const FormAuthor = () => {
             span: 14,
           }}
           autoComplete="off"
+          validateMessages={validateMessages}
           onFinish={onFinish}
         >
           <Form.Item
@@ -59,11 +61,10 @@ const FormAuthor = () => {
             rules={[
               {
                 required: true,
-                message: "Bắt buộc phải nhập tên tác giả!",
               },
               {
                 min: 2,
-                message: "Bắt buộc phải nhập trên 2 kí tự!",
+                message: "Tên thể loại bắt buộc phải nhập trên 2 kí tự!",
               },
             ]}
           >
@@ -101,6 +102,7 @@ const FormAuthor = () => {
           }}
           autoComplete="off"
           initialValues={author}
+          validateMessages={validateMessages}
           onFinish={onFinish}
         >
           <Form.Item
@@ -109,11 +111,10 @@ const FormAuthor = () => {
             rules={[
               {
                 required: true,
-                message: "Bắt buộc phải nhập tên tác giả!",
               },
               {
                 min: 2,
-                message: "Bắt buộc phải nhập trên 2 kí tự!",
+                message: "Tên thể loại bắt buộc phải nhập trên 2 kí tự!",
               },
             ]}
           >

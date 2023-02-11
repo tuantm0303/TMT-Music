@@ -8,6 +8,7 @@ import {
   createCategories,
   updateCategories,
 } from "../../../store/features/categorySlice";
+import { validateMessages } from "../../../utils/validationForm";
 
 const FormCategory = () => {
   const navigate = useNavigate();
@@ -62,6 +63,7 @@ const FormCategory = () => {
             span: 14,
           }}
           autoComplete="off"
+          validateMessages={validateMessages}
           onFinish={onFinish}
         >
           <Form.Item
@@ -70,11 +72,10 @@ const FormCategory = () => {
             rules={[
               {
                 required: true,
-                message: "Bắt buộc phải nhập tên thể loại!",
               },
               {
                 min: 2,
-                message: "Bắt buộc phải nhập trên 2 kí tự!",
+                message: "Tên thể loại bắt buộc phải nhập trên 2 kí tự!",
               },
             ]}
           >
@@ -83,12 +84,7 @@ const FormCategory = () => {
           <Form.Item
             label="Mô tả"
             name="description"
-            rules={[
-              {
-                required: true,
-                message: "Bắt buộc phải nhập mô tả!",
-              },
-            ]}
+            rules={[{ required: true }]}
           >
             <Input />
           </Form.Item>
@@ -124,6 +120,7 @@ const FormCategory = () => {
           }}
           autoComplete="off"
           initialValues={category}
+          validateMessages={validateMessages}
           onFinish={onFinish}
         >
           <Form.Item
@@ -132,11 +129,10 @@ const FormCategory = () => {
             rules={[
               {
                 required: true,
-                message: "Bắt buộc phải nhập tên thể loại!",
               },
               {
                 min: 2,
-                message: "Bắt buộc phải nhập trên 2 kí tự!",
+                message: "Tên thể loại bắt buộc phải nhập trên 2 kí tự!",
               },
             ]}
           >
@@ -145,12 +141,7 @@ const FormCategory = () => {
           <Form.Item
             label="Mô tả"
             name="description"
-            rules={[
-              {
-                required: true,
-                message: "Bắt buộc phải nhập mô tả!",
-              },
-            ]}
+            rules={[{ required: true }]}
           >
             <Input />
           </Form.Item>

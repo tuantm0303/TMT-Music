@@ -10,22 +10,12 @@ import {
 import { singersApi } from "../../../services/singer";
 import { handleUploadFile } from "../../../utils/upload";
 import { UploadOutlined } from "@ant-design/icons";
+import { validateMessages } from "../../../utils/validationForm";
 
 const FormSinger = () => {
   const [file, setFile] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  /* eslint-disable no-template-curly-in-string */
-  const validateMessages = {
-    required: "Bắt buộc phải nhập ${label}!",
-    types: {
-      number: "${label} phải là một số!",
-    },
-    number: {
-      range: "${label} từ ${min} đến ${max}",
-    },
-  };
 
   // create
   const addSinger = (data) => {

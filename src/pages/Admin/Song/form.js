@@ -9,23 +9,13 @@ import { createSong, updateSong } from "../../../store/features/songSlice";
 import { songsApi } from "../../../services/song";
 import SelectOptions from "./components/SelectOptions";
 import { handleUploadFile } from "../../../utils/upload";
+import { validateMessages } from "../../../utils/validationForm";
 
 const FormSong = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [fileImage, setFileImage] = useState(null);
   const [fileAudio, setFileAudio] = useState(null);
-
-  /* eslint-disable no-template-curly-in-string */
-  const validateMessages = {
-    required: "Bắt buộc phải có ${label}!",
-    types: {
-      number: "${label} phải là một số!",
-    },
-    number: {
-      range: "${label} từ ${min} đến ${max}",
-    },
-  };
 
   // create
   const add = (data) => {
@@ -111,7 +101,7 @@ const FormSong = () => {
               <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
             </Upload>
           </Form.Item>
-          <Form.Item label="audio" name="audio" rules={[{ required: true }]}>
+          <Form.Item label="Audio" name="audio" rules={[{ required: true }]}>
             <Upload onChange={handleChangeAudio} listType="picture">
               <Button icon={<UploadOutlined />}>Tải audio lên</Button>
             </Upload>
