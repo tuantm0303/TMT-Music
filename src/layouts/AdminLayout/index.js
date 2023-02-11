@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Layout, theme } from "antd";
+import { Link } from "react-router-dom";
 import MenuAdmin from "./MenuAdmin";
+import config from "../../config";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -22,10 +24,19 @@ const AdminLayout = ({ children }) => {
       >
         <div
           style={{
-            height: 32,
+            height: 70,
             margin: 16,
+            padding: 10,
           }}
-        />
+        >
+          <Link to={config.routes.home}>
+            <img
+              src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg"
+              alt=""
+              class="w-full"
+            />
+          </Link>
+        </div>
         <MenuAdmin />
       </Sider>
       <Layout className="site-layout">
