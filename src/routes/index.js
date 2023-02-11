@@ -6,6 +6,8 @@ import FormCategory from "../pages/Admin/Category/form";
 import Dashboard from "../pages/Admin/Dashboard";
 import AdminSinger from "../pages/Admin/Singer";
 import FormSinger from "../pages/Admin/Singer/form";
+import AdminSlide from "../pages/Admin/Slide";
+import FormSlide from "../pages/Admin/Slide/form";
 import AdminSong from "../pages/Admin/Song";
 import FormSong from "../pages/Admin/Song/form";
 import AdminUser from "../pages/Admin/User";
@@ -52,4 +54,7 @@ export const privateRoutes = [
   { path: config.routes.adminAuthorList, component: AdminAuthor },
   { path: config.routes.adminAuthorAdd, component: FormAuthor },
   { path: config.routes.adminAuthorEdit, component: FormAuthor },
+  { path: config.routes.adminSlideList, component: AdminSlide },
+  { path: config.routes.adminSlideAdd, component: FormSlide },
+  { path: config.routes.adminSlideEdit, component: FormSlide },
 ];
