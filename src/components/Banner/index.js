@@ -1,14 +1,25 @@
 import { Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slide from "./Slide";
+import { slidesApi } from "../../services/slide";
 
 const Slider = dynamic(() => import("react-slick").then((m) => m.default), {
   ssr: false,
 });
 
 const Banner = () => {
+  const [slides, setSlides] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const { data } = await slidesApi.list();
+      console.log(data);
+      setSlides(data);
+    })();
+  }, []);
+
   const slickSettings = {
     dots: true,
     infinite: true,
@@ -65,26 +76,9 @@ const Banner = () => {
           }}
         >
           <Slider {...slickSettings}>
-            <Slide
-              img={
-                "https://photo-zmp3.zmdcdn.me/banner/4/d/d/5/4dd57b69bed51c2da8b50716b697677e.jpg"
-              }
-            />
-            <Slide
-              img={
-                "https://photo-zmp3.zmdcdn.me/banner/1/0/7/3/107367e8de4ee33474d8fb33811c66bf.jpg"
-              }
-            />
-            <Slide
-              img={
-                "https://photo-zmp3.zmdcdn.me/banner/2/c/1/6/2c16d9e4b5189c7712f50360ab7ac7a9.jpg"
-              }
-            />
-            <Slide
-              img={
-                "https://photo-zmp3.zmdcdn.me/banner/d/7/0/b/d70bec2b7f86754b41f124e04a0704bf.jpg"
-              }
-            />
+            {slides.map((item, index) => (
+              <Slide key={index} img={item.image} name={item.name} />
+            ))}
           </Slider>
         </Box>
       </Box>
