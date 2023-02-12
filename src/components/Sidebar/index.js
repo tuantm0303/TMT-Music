@@ -32,7 +32,7 @@ const Sidebar = () => {
         <div className="title-library py-4 pl-8 font-bold">THƯ VIỆN</div>
         <ItemLink location="sidebar_bot" />
       </ul>
-      <div className="create-playlist bg-[#231B2E] fixed bottom-0 left-0 border-t-2 w-[240px] h-55px border-gray-500">
+      <div className="create-playlist bg-[#231B2E] fixed bottom-[90px] left-0 border-t-2 w-[240px] h-55px border-gray-500">
         <ButtonSidebar icon={<AiOutlinePlus />} title={"Tạo playlist mới"} />
       </div>
     </aside>
