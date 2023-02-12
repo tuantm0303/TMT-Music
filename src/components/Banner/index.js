@@ -15,7 +15,6 @@ const Banner = () => {
   useEffect(() => {
     (async () => {
       const { data } = await slidesApi.list();
-      console.log(data);
       setSlides(data);
     })();
   }, []);
