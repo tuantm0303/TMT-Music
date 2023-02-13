@@ -1,9 +1,11 @@
 import React from "react";
 import { BsPlayCircle } from "react-icons/bs";
 import { CiMusicNote1 } from "react-icons/ci";
+import { useSelector } from "react-redux";
 import Song from "../../../components/Player/components/Song";
 
 const MyMusic = () => {
+  const { songs } = useSelector((state) => state.songReducer);
   return (
     <>
       <main className="main-board pt-16 px-10">
@@ -37,14 +39,17 @@ const MyMusic = () => {
           <h3 className="media-left opacity-50">THỜI GIAN</h3>
         </div>
         <div className="media-container">
-          <div className="media-song border-b-2 border-b-gray-500 flex items-center hover:bg-slate-500 hover:rounded-lg">
-            <CiMusicNote1 className="w-8" />
-            <Song title="Già Cùng Nhau Là Được" singer="Tây Nguyên Sound" />
-          </div>
-          <div className="media-song border-b-2 border-b-gray-500 flex items-center hover:bg-slate-500 hover:rounded-lg">
-            <CiMusicNote1 className="w-8" />
-            <Song title="Già Cùng Nhau Là Được" singer="Tây Nguyên Sound" />
-          </div>
+          {songs.map((item, index) => (
+            <div className="media-song border-b-2 border-b-gray-500 flex items-center hover:bg-slate-500 hover:rounded-lg">
+              <CiMusicNote1 className="w-8" />
+              <Song
+                key={index}
+                image={item?.image}
+                title={item?.title}
+                singer={item?.singerId?.fullname}
+              />
+            </div>
+          ))}
         </div>
       </main>
     </>

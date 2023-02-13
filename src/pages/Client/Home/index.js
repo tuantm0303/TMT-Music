@@ -1,8 +1,10 @@
 import React from "react";
 import Song from "../../../components/Player/components/Song";
 import Banner from "../../../components/Banner";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const { songs } = useSelector((state) => state.songReducer);
   return (
     <>
       <main className="main-board pt-8 px-10">
@@ -98,47 +100,15 @@ const Home = () => {
             </li>
           </ul>
           <div className="song-section grid grid-cols-3 grid-rows-3">
-            <Song
-              title="Chúng Ta Của Hiện Tại"
-              singer="Sơn Tùng M-TP"
-              time="Hôm nay"
-            />
-            <Song
-              title="Chúng Ta Của Hiện Tại"
-              singer="Sơn Tùng M-TP"
-              time="Hôm nay"
-            />
-            <Song
-              title="Chúng Ta Của Hiện Tại"
-              singer="Sơn Tùng M-TP"
-              time="Hôm nay"
-            />
-            <Song
-              title="Chúng Ta Của Hiện Tại"
-              singer="Sơn Tùng M-TP"
-              time="Hôm nay"
-            />
-            <Song
-              title="Chúng Ta Của Hiện Tại"
-              singer="Sơn Tùng M-TP"
-              time="Hôm nay"
-            />
-            <Song title="Ghé Qua" singer="Dick x Tofu x PC" time="Hôm qua" />
-            <Song
-              title="Chúng Ta Của Hiện Tại"
-              singer="Sơn Tùng M-TP"
-              time="Hôm nay"
-            />
-            <Song
-              title="Chúng Ta Của Hiện Tại"
-              singer="Sơn Tùng M-TP"
-              time="Hôm nay"
-            />
-            <Song
-              title="Chúng Ta Của Hiện Tại"
-              singer="Sơn Tùng M-TP"
-              time="Hôm nay"
-            />
+            {songs.map((item, index) => (
+              <Song
+                key={index}
+                image={item?.image}
+                title={item?.title}
+                singer={item?.singerId?.fullname}
+                time={item?.time}
+              />
+            ))}
           </div>
         </div>
       </main>

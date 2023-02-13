@@ -1,10 +1,13 @@
 import React from "react";
 import { BiTimeFive } from "react-icons/bi";
 import { RiMoreFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
 import Icon from "../Icon";
 import Song from "./components/Song";
 
 const Player = () => {
+  const { songs } = useSelector((state) => state.songReducer);
+  console.log(songs);
   return (
     <>
       <div className="player w-[330px] right-0 bottom-0 relative px-3 h-screen">
@@ -32,8 +35,14 @@ const Player = () => {
         </div>
 
         <div className="player-scroll p-2">
-          <Song title="Chúng ta của hiện tại" singer="Sơn Tùng M-TP" />
-          <Song title="Đứa nào làm em buồn" singer="Phúc Du" />
+          {songs.map((item, index) => (
+            <Song
+              key={index}
+              image={item?.image}
+              title={item?.title}
+              singer={item?.singerId?.fullname}
+            />
+          ))}
         </div>
       </div>
     </>
