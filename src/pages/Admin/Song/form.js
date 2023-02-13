@@ -149,9 +149,9 @@ const FormSong = () => {
           onFinish={onFinish}
           initialValues={{
             ...song,
-            categoryId: song.categoryId._id,
-            authorId: song.authorId._id,
-            singerId: song.singerId._id,
+            categoryId: song?.categoryId?._id,
+            authorId: song?.authorId?._id,
+            singerId: song?.singerId?._id,
           }}
         >
           <Form.Item
