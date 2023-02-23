@@ -1,13 +1,18 @@
 import React from "react";
 import { BiTimeFive } from "react-icons/bi";
 import { RiMoreFill } from "react-icons/ri";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { readSong } from "../../store/features/songSlice";
 import Icon from "../Icon";
 import Song from "./components/Song";
 
 const Player = () => {
   const { songs } = useSelector((state) => state.songReducer);
-  console.log(songs);
+  const dispatch = useDispatch();
+
+  const handlePlaySong = (id, index) => {
+    dispatch(readSong(id));
+  };
   return (
     <>
       <div className="player w-[330px] right-0 bottom-0 relative px-3 h-screen">
@@ -36,12 +41,13 @@ const Player = () => {
 
         <div className="player-scroll p-2">
           {songs.map((item, index) => (
-            <Song
-              key={index}
-              image={item?.image}
-              title={item?.title}
-              singer={item?.singerId?.fullname}
-            />
+            <button key={index} onClick={() => handlePlaySong(item._id, index)}>
+              <Song
+                image={item?.image}
+                title={item?.title}
+                singer={item?.singerId?.fullname}
+              />
+            </button>
           ))}
         </div>
       </div>
