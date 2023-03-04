@@ -31,7 +31,7 @@ const Playing = () => {
         </div>
       </div>
       <div className="playing-center w-full px-5 flex-grow block">
-        <AudioPlayer
+        {/* <AudioPlayer
           className="music-play"
           style={{ background: "#130C1C" }}
           src={song?.audio}
@@ -40,7 +40,7 @@ const Playing = () => {
           showJumpControls={false}
           onClickNext={handleNext}
           onClickPrevious={handlePrev}
-        />
+        /> */}
       </div>
       <div className="playing-right flex flex-grow justify-end w-[345px] pr-10">
         <GiMusicalKeyboard style={{ width: 20, height: 20, margin: 10 }} />

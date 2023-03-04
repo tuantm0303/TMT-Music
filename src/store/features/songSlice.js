@@ -21,11 +21,6 @@ export const readSong = createAsyncThunk(
   async (id) => await songsApi.read(id)
 );
 
-// export const nextSong = createAsyncThunk(
-//   "songs/next",
-//   async (index) => await songsApi.list(index)
-// );
-
 export const updateSong = createAsyncThunk(
   "songs/update",
   async (id) => await songsApi.update(id)
@@ -34,6 +29,7 @@ export const updateSong = createAsyncThunk(
 const initialState = {
   songs: [],
   song: {},
+  currentIndex: 0,
   isFetching: false,
   isSucess: false,
   isErr: false,
@@ -42,7 +38,15 @@ const initialState = {
 const songSlice = createSlice({
   name: "songs",
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentIndex: (state, action) => {
+      state.currentIndex = action.payload;
+    },
+    nextPrevSong: (state, action) => {
+      state.song = state.songs[action.payload];
+      state.currentIndex = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     // list
     builder.addCase(listSong.pending, (state, action) => {
@@ -135,5 +139,7 @@ const songSlice = createSlice({
     });
   },
 });
+
+export const { setCurrentIndex, nextPrevSong } = songSlice.actions;
 
 export default songSlice.reducer;
