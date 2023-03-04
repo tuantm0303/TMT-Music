@@ -56,13 +56,17 @@ const Player = () => {
 
         <div className="player-scroll p-2">
           {songs.map((item, index) => (
-            <button key={index} onClick={() => handlePlaySong(item._id, index)}>
+            <div
+              className="select-song"
+              key={index}
+              onClick={() => handlePlaySong(item._id, index)}
+            >
               <Song
                 image={item?.image}
                 title={item?.title}
                 singer={item?.singerId?.fullname}
               />
-            </button>
+            </div>
           ))}
           <AudioPlayer
             className="music-play"
