@@ -1,32 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { BiTimeFive } from "react-icons/bi";
 import { RiMoreFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  nextPrevSong,
-  readSong,
-  setCurrentIndex,
-} from "../../store/features/songSlice";
+import { readSong, setCurrentIndex } from "../../store/features/songSlice";
 import Icon from "../Icon";
 import Song from "./components/Song";
-import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 
 const Player = () => {
-  const { song, songs, currentIndex } = useSelector(
-    (state) => state.songReducer
-  );
+  const { songs } = useSelector((state) => state.songReducer);
   const dispatch = useDispatch();
 
   const handlePlaySong = (id, index) => {
     dispatch(readSong(id));
     dispatch(setCurrentIndex(index));
-  };
-  const handleNext = () => {
-    dispatch(nextPrevSong((currentIndex + 1) % songs.length));
-  };
-  const handlePrev = () => {
-    dispatch(nextPrevSong((currentIndex - 1) % songs.length));
   };
   return (
     <>
@@ -68,16 +55,6 @@ const Player = () => {
               />
             </div>
           ))}
-          <AudioPlayer
-            className="music-play"
-            style={{ background: "#130C1C" }}
-            src={song?.audio}
-            layout="stacked-reverse"
-            showSkipControls={true}
-            showJumpControls={false}
-            onClickNext={handleNext}
-            onClickPrevious={handlePrev}
-          />
         </div>
       </div>
     </>
