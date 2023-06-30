@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiTimeFive } from "react-icons/bi";
 import { RiMoreFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,15 +6,22 @@ import { readSong, setCurrentIndex } from "../../store/features/songSlice";
 import Icon from "../Icon";
 import Song from "./components/Song";
 import "react-h5-audio-player/lib/styles.css";
+import { Button, Popover } from "antd";
+import Lyric from "./Lyric";
 
 const Player = () => {
+  const [id, setId] = useState("");
+
   const { songs } = useSelector((state) => state.songReducer);
   const dispatch = useDispatch();
 
-  const handlePlaySong = (id, index) => {
+  const handlePlaySong = (id, index, lyric) => {
+    console.log(lyric);
+    setId(id);
     dispatch(readSong(id));
     dispatch(setCurrentIndex(index));
   };
+
   return (
     <>
       <div className="player w-[330px] right-0 bottom-0 relative px-3 h-screen">
@@ -42,18 +49,18 @@ const Player = () => {
         </div>
 
         <div className="player-scroll p-2">
-          {songs.map((item, index) => (
-            <div
-              className="select-song"
-              key={index}
-              onClick={() => handlePlaySong(item._id, index)}
-            >
-              <Song
-                image={item?.image}
-                title={item?.title}
-                singer={item?.singerId?.fullname}
-              />
-            </div>
+          {songs.map((item, index, lyric) => (
+            <>
+              <Popover placement="bottom" content={<Lyric id={id} lyric="abc" />} trigger="click">
+                <div
+                  className="select-song"
+                  key={index}
+                  onClick={() => handlePlaySong(item._id, index, item.lyric)}
+                >
+                  <Song image={item?.image} title={item?.title} singer={item?.singerId?.fullname} />
+                </div>
+              </Popover>
+            </>
           ))}
         </div>
       </div>
