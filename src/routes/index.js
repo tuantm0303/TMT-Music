@@ -14,7 +14,7 @@ import AdminUser from "../pages/Admin/User";
 import Category from "../pages/Client/Category";
 import Follow from "../pages/Client/Follow";
 import History from "../pages/Client/History";
-import Home from "../pages/Client/Home";
+import Home from "../pages/Client/Home/Home";
 import MusicNew from "../pages/Client/MusicNew";
 import MV from "../pages/Client/MV";
 import MyMusic from "../pages/Client/MyMusic";

@@ -2,7 +2,7 @@ import React from "react";
 import { BsPlayCircle } from "react-icons/bs";
 import { CiMusicNote1 } from "react-icons/ci";
 import { useSelector } from "react-redux";
-import Song from "../../../components/Player/components/Song";
+import Song from "../../../components/Player/Song";
 
 const MyMusic = () => {
   const { songs } = useSelector((state) => state.songReducer);

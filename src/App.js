@@ -1,12 +1,14 @@
-import { Route, Routes } from "react-router-dom";
 import { Fragment } from "react";
-import { privateRoutes, publicRoutes } from "./routes";
-import OutSideLayout from "./layouts/OutsideLayout";
-import AdminLayout from "./layouts/AdminLayout";
 import { useDispatch } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import './App.scss';
+import AdminLayout from "./layouts/AdminLayout";
+// import OutSideLayout from "./layouts/OutsideLayout";
+import OutsideLayout from "./layouts/OutsideLayout/OutsideLayout";
+import { privateRoutes, publicRoutes } from "./routes";
 import { listCategories } from "./store/features/categorySlice";
-import { listSong } from "./store/features/songSlice";
 import { listSinger } from "./store/features/singerSlice";
+import { listSong } from "./store/features/songSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,8 +25,8 @@ function App() {
           const Layout = route.layout
             ? route.layout
             : route.layout === null
-            ? Fragment
-            : OutSideLayout;
+              ? Fragment
+              : OutsideLayout;
 
           return (
             <Route
@@ -45,8 +47,8 @@ function App() {
           const Layout = route.layout
             ? route.layout
             : route.layout === null
-            ? Fragment
-            : AdminLayout;
+              ? Fragment
+              : AdminLayout;
 
           return (
             <Route

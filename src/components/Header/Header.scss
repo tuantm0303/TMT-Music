@@ -1,0 +1,86 @@
+@mixin textStyle($weight: 600, $color: whitesmoke) {
+  font-weight: $weight;
+  color: $color;
+}
+
+.zjtpekizcb {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .updtyqlmxo {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+
+    .evvowvudfg {
+      display: flex;
+
+      .umoujeuolq {
+        margin: 0 8px;
+      }
+    }
+
+    .qqmuxnccks {
+      width: 100%;
+      outline: none;
+      @include textStyle(600, whitesmoke);
+      height: 40px;
+      border-radius: 999px;
+      background: #2F2739;
+      border-width: 1px;
+      border-style: none;
+
+      .ant-input {
+        @include textStyle(600, whitesmoke);
+        background: #2F2739;
+
+        &::placeholder {
+          @include textStyle(400, whitesmoke);
+        }
+      }
+    }
+  }
+
+  .pfycktwghf {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    .mfkukvpsdk {
+      @include textStyle(600);
+      color: #c273ed;
+      border-radius: 999px;
+      line-height: normal;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      border-style: none;
+      background: #2a1151;
+    }
+
+    .nrxqywgjhr {
+      padding: 8px;
+      margin: 0 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      border-style: none;
+      background: #2a1151;
+
+      .aakncbnome {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    .ypmkurlfjn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+    }
+  }
+}
