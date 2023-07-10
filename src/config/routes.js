@@ -31,6 +31,9 @@ const routes = {
   adminSlideList: "/admin/slide",
   adminSlideAdd: "/admin/slide/add",
   adminSlideEdit: "/admin/slide/:id",
+  adminMenuList: "/admin/menu",
+  adminMenuAdd: "/admin/menu/add",
+  adminMenuEdit: "/admin/menu/:id",
 };
 
 export default routes;

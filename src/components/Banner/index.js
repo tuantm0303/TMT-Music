@@ -1,10 +1,10 @@
 import { Box } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slide from "./Slide";
+import "slick-carousel/slick/slick.css";
 import { slidesApi } from "../../services/slide";
+import Slide from "./Slide";
 
 const Slider = dynamic(() => import("react-slick").then((m) => m.default), {
   ssr: false,
@@ -27,7 +27,7 @@ const Banner = () => {
     slidesToShow: 3,
   };
   return (
-    <div className="banner w-[1048px]">
+    <div className="kxbovgjmpw">
       <Box m="20">
         <Box
           sx={{

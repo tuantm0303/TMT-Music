@@ -1,10 +1,10 @@
-import React from "react";
-import { UserOutlined, StockOutlined } from "@ant-design/icons";
-import { GiMusicSpell } from "react-icons/gi";
-import { FaMicrophoneAlt } from "react-icons/fa";
-import { BsPencil } from "react-icons/bs";
-import { BiCarousel, BiCategoryAlt } from "react-icons/bi";
+import { StockOutlined, UserOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
+import React from "react";
+import { BiCarousel, BiCategoryAlt } from "react-icons/bi";
+import { BsFillMenuButtonWideFill, BsPencil } from "react-icons/bs";
+import { FaMicrophoneAlt } from "react-icons/fa";
+import { GiMusicSpell } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import config from "../../../config";
 
@@ -28,6 +28,16 @@ const items = [
     "adminUser",
     <UserOutlined />
   ),
+  getItem("Quản lí menu", "adminMenu", <BsFillMenuButtonWideFill />, [
+    getItem(
+      <Link to={config.routes.adminMenuList}>Danh sách menu</Link>,
+      "adminMenu1"
+    ),
+    getItem(
+      <Link to={config.routes.adminMenuAdd}>Thêm menu</Link>,
+      "adminMenu2"
+    ),
+  ]),
   getItem("Quản lí thể loại", "adminCategory", <BiCategoryAlt />, [
     getItem(
       <Link to={config.routes.adminCategoryList}>Danh sách thể loại</Link>,

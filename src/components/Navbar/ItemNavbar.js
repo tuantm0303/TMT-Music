@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactComponent as IconDiscover } from '../../assets/svgs/discover.svg';
 import './ItemNavbar.scss';
 
 const ItemNavbar = (props) => {
@@ -12,8 +11,8 @@ const ItemNavbar = (props) => {
             return (
               <div key={index} className="mofhtivwys">
                 <div className="bkmppahjqc">
-                  <IconDiscover className="bcfvmcjqhu" />
-                  <div className="zlpdcssnij">{item?.title}</div>
+                  <div dangerouslySetInnerHTML={{ __html: item?.icon }} className="bcfvmcjqhu"></div>
+                  <div className="zlpdcssnij">{item?.name}</div>
                 </div>
               </div>
             )
