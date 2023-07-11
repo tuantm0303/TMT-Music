@@ -1,11 +1,12 @@
+import { Popover } from 'antd';
 import { ReactComponent as IconHeart } from '../../assets/svgs/icon-heart.svg';
 import { ReactComponent as IconOption } from '../../assets/svgs/icon-option.svg';
 import { ReactComponent as IconPlay } from '../../assets/svgs/icon-play.svg';
 import './Song.scss';
 
-const Song = ({ image, title, singer, time, index }) => {
+const Song = ({ image, title, singer }) => {
   return (
-    <div key={index} className="kybqblbsmr">
+    <div className="kybqblbsmr">
       <div className="ibymmdlsiw">
         <div className="fyaiadzrcb">
           <img src={image} alt="" className="gfmutzlmjv" />
@@ -18,8 +19,12 @@ const Song = ({ image, title, singer, time, index }) => {
       </div>
 
       <div className="jlbgbmkehm">
-        <IconHeart className='akrlfhazbs' />
-        <IconOption className='akrlfhazbs' />
+        <Popover trigger='hover' content={<div style={{ whiteSpace: 'nowrap' }}>Thêm vào thư viện</div>}>
+          <IconHeart className='akrlfhazbs' />
+        </Popover>
+        <Popover trigger='hover' content='Khác'>
+          <IconOption className='akrlfhazbs' />
+        </Popover>
       </div>
     </div>
   );
