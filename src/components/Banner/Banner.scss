@@ -4,6 +4,10 @@
   .ohwxinitqm {
     padding: 0 12px;
 
+    &:focus-visible {
+      outline: none;
+    }
+
     img {
       border-radius: 16px;
       height: 180px;
