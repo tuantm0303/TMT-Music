@@ -1,11 +1,11 @@
 import { Button } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import logo from '../../assets/images/logo.png';
 import { menuApi } from "../../services/menu";
 import './Navbar.scss';
 
 const Navbar = () => {
-  const [data, setData] = useState([])
+  // const [data, setData] = useState([])
 
   useEffect(() => {
     (async () => {
