@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import './App.scss';
 import AdminLayout from "./layouts/AdminLayout";
-// import OutSideLayout from "./layouts/OutsideLayout";
 import OutsideLayout from "./layouts/OutsideLayout/OutsideLayout";
 import { privateRoutes, publicRoutes } from "./routes";
 import { listCategories } from "./store/features/categorySlice";
@@ -17,7 +16,7 @@ function App() {
   dispatch(listSinger());
 
   return (
-    <>
+    <div className="App">
       <Routes>
         {publicRoutes.map((route, index) => {
           const Component = route.component;
@@ -63,7 +62,7 @@ function App() {
           );
         })}
       </Routes>
-    </>
+    </div>
   );
 }
 
