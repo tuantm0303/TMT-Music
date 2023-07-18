@@ -1,18 +1,16 @@
 import { Button } from "antd";
-import { useEffect } from "react";
 import logo from '../../assets/images/logo.png';
-import { menuApi } from "../../services/menu";
 import './Navbar.scss';
 
 const Navbar = () => {
   // const [data, setData] = useState([])
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await menuApi.list()
-      setData(data)
-    })()
-  }, [])
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await menuApi.list()
+  //     setData(data)
+  //   })()
+  // }, [])
 
   return (
     <div className="mnujqleebm">
