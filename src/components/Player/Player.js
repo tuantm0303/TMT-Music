@@ -14,8 +14,7 @@ const Player = () => {
   const { songs } = useSelector((state) => state.songReducer);
   const dispatch = useDispatch();
 
-  const handlePlaySong = (id, index, lyric) => {
-    // console.log(lyric);
+  const handlePlaySong = (id, index) => {
     setId(id);
     dispatch(readSong(id));
     dispatch(setCurrentIndex(index));
@@ -37,16 +36,18 @@ const Player = () => {
         </div>
       </div>
       <div className='asxzhtjjxr'>
-        {songs.map((item, index) => (
-          <Popover placement="bottom" content={<Lyric id={id} lyric="abc" />} trigger="click" key={index}>
-            <div
-              className="select-song"
-              onClick={() => handlePlaySong(item._id, index, item.lyric)}
-            >
-              <Song image={item?.image} title={item?.title} singer={item?.singerId?.fullname} />
-            </div>
-          </Popover>
-        ))}
+        {songs.map((item, index) => {
+          return (
+            <Popover placement="bottom" content={<Lyric id={id} lyric={item?.lyric} />} trigger="click" key={index}>
+              <div
+                className="select-song"
+                onClick={() => handlePlaySong(item._id, index, item.lyric)}
+              >
+                <Song image={item?.image} title={item?.title} singer={item?.singerId?.fullname} />
+              </div>
+            </Popover>
+          )
+        })}
       </div>
     </div>
   );

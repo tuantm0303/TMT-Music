@@ -12,11 +12,7 @@ const Lyric = ({ id, lyric }) => {
   }, [id]);
 
   return (
-    <div>
-      {/* <p>{song.lyric}</p> */}
-      <p>{lyric ? song.lyric : ""}</p>
-      <p>{lyric}</p>
-    </div>
+    <div>Lyric: {lyric ? song.lyric : ""}</div>
   );
 };
 

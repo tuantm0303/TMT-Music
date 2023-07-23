@@ -7,7 +7,7 @@ const ItemNavbar = (props) => {
     <div className="mrpxntzgke">
       {data && data.length > 0 ?
         data?.map((item, index) => {
-          if (item.type === location) {
+          if (item?.type === location) {
             return (
               <div key={index} className="mofhtivwys">
                 <div className="bkmppahjqc">

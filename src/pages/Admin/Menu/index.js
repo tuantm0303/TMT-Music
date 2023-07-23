@@ -36,6 +36,11 @@ const AdminMenu = () => {
       dataIndex: "icon",
       key: "icon",
     },
+    // {
+    //   title: "Path",
+    //   dataIndex: "path",
+    //   key: "path",
+    // },
     {
       title: "Type",
       dataIndex: "type",
@@ -53,6 +58,7 @@ const AdminMenu = () => {
     stt: key + 1,
     name: item?.name,
     icon: <div dangerouslySetInnerHTML={{ __html: item?.icon }}></div>,
+    path: item?.path,
     type: item?.type,
     action: (
       <Space size="middle">
@@ -83,6 +89,7 @@ const AdminMenu = () => {
       </Space>
     ),
   }));
+  console.log(data);
 
   return (
     <>

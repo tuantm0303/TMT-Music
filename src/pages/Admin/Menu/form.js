@@ -63,7 +63,7 @@ const FormMenu = () => {
               { required: true },
               {
                 min: 2,
-                message: "Tên bài hát bắt buộc phải nhập trên 2 kí tự!",
+                message: "Tên menu bắt buộc phải nhập trên 2 kí tự!",
               },
             ]}
           >
@@ -78,6 +78,15 @@ const FormMenu = () => {
           >
             <Input />
           </Form.Item>
+          {/* <Form.Item
+            label="Đường dẫn"
+            name="path"
+            rules={[
+              { required: true },
+            ]}
+          >
+            <Input />
+          </Form.Item> */}
           <Form.Item
             label="Type"
             name="type"
@@ -134,7 +143,7 @@ const FormMenu = () => {
               { required: true },
               {
                 min: 2,
-                message: "Tên bài hát bắt buộc phải nhập trên 2 kí tự!",
+                message: "Tên menu bắt buộc phải nhập trên 2 kí tự!",
               },
             ]}
           >
@@ -149,6 +158,15 @@ const FormMenu = () => {
           >
             <Input />
           </Form.Item>
+          {/* <Form.Item
+            label="Đường dẫn"
+            name="path"
+            rules={[
+              { required: true },
+            ]}
+          >
+            <Input />
+          </Form.Item> */}
           <Form.Item
             label="Type"
             name="type"
