@@ -15,7 +15,12 @@
     padding: 20px 0;
 
     .aksumtvqgj {
-      flex-basis: calc(20% - 24px);
+      flex-basis: calc(25% - 12px);
+
+      @media (max-width:1200px) {
+        flex-basis: calc(50% - 12px);
+        padding: 10px;
+      }
 
       .qfgknudtqa {
         position: relative;
@@ -91,6 +96,12 @@
       .rcihfvlxsd {
         padding: 8px 0;
         font-weight: 700;
+
+        @media (max-width:1440px) {
+          padding: 4px 0;
+          white-space: nowrap;
+          font-size: 12px;
+        }
       }
 
       .udwhpapqfs {
@@ -99,6 +110,10 @@
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+
+        @media (max-width:1440px) {
+          font-size: 12px;
+        }
       }
     }
   }

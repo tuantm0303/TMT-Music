@@ -2,9 +2,14 @@
   width: 100%;
   max-width: 330px;
   padding: 0 12px;
+  background: #170f23;
 
   @media (max-width:1440px) {
     max-width: 300px;
+  }
+
+  @media (max-width: 1200px) {
+    background: #130c1c;
   }
 
   .fmpovgqagv {

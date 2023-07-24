@@ -9,7 +9,7 @@ const Playlist = () => {
     <div className="smfgfremag">
       <div className="rxbrbwhxrx">Có Thể Bạn Muốn Nghe</div>
       <div className="qtbdyqcgkb">
-        {[0, 1, 2, 3, 4].map((item, index) => {
+        {[0, 1, 2, 3].map((item, index) => {
           return (
             <div className="aksumtvqgj" key={index}>
               <div className="qfgknudtqa">

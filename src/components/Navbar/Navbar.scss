@@ -56,6 +56,10 @@
         font-size: 12px;
         font-weight: 600;
         margin-bottom: 10px;
+
+        @media (max-width:1440px) {
+          font-size: 10px;
+        }
       }
 
       .mrhmmaomvh {
@@ -66,6 +70,14 @@
         font-weight: 700;
         border-radius: 20px;
         text-transform: uppercase;
+        width: 100%;
+        cursor: pointer;
+
+        @media (max-width:1440px) {
+          padding: 4px 8px;
+          font-size: 10px;
+          font-weight: 600;
+        }
 
         &:hover {
           opacity: 0.8;
