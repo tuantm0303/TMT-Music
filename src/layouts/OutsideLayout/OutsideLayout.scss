@@ -7,6 +7,14 @@
     .luvufpdcfl {
       padding: 0 40px;
       width: calc(100% - 240px - 330px);
+
+      @media (max-width:1440px) {
+        width: calc(100% - 200px - 300px);
+      }
+
+      @media (max-width:1200px) {
+        width: calc(100% - 70px - 300px);
+      }
     }
   }
 }

@@ -2,14 +2,36 @@
   background: #221A2D;
   max-width: 240px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
+
+  @media (max-width:1440px) {
+    max-width: 200px;
+  }
+
+  @media (max-width:1200px) {
+    max-width: 70px;
+  }
 
   .jkdzfirhal {
     height: 70px;
     display: flex;
     align-items: center;
     padding: 0 21px;
+
+    .hyzyrvupgm {
+      @media (max-width:1200px) {
+        display: none;
+      }
+    }
+
+    .ayrfjmxlma {
+      display: none;
+
+      @media (max-width:1200px) {
+        display: block;
+      }
+    }
   }
 
   .iakqsebcro {
@@ -53,6 +75,10 @@
           }
         }
       }
+
+      @media (max-width:1200px) {
+        display: none;
+      }
     }
   }
 
@@ -64,5 +90,13 @@
     width: 100%;
     height: 50px;
     bottom: 88px;
+
+    @media (max-width:1440px) {
+      max-width: 200px;
+    }
+
+    @media (max-width:1200px) {
+      max-width: 70px;
+    }
   }
 }

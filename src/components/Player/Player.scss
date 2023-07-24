@@ -3,6 +3,10 @@
   max-width: 330px;
   padding: 0 12px;
 
+  @media (max-width:1440px) {
+    max-width: 300px;
+  }
+
   .fmpovgqagv {
     display: flex;
     align-items: center;

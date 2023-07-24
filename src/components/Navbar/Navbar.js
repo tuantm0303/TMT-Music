@@ -1,5 +1,6 @@
 import { Button } from "antd";
 import { useEffect, useState } from "react";
+import logoMobile from '../../assets/images/logo-mobile.png';
 import logo from '../../assets/images/logo.png';
 import { menuApi } from "../../services/menu";
 import ItemNavbar from "./ItemNavbar";
@@ -19,7 +20,8 @@ const Navbar = () => {
   return (
     <div className="mnujqleebm">
       <div className="jkdzfirhal">
-        <img src={logo} alt="" />
+        <img src={logo} alt="" className="hyzyrvupgm" />
+        <img src={logoMobile} alt="" className="ayrfjmxlma" />
       </div>
       <ItemNavbar data={data} location='top' />
       <hr className="iakqsebcro" />

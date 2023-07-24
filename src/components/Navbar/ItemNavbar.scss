@@ -11,10 +11,14 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: start;
+      justify-content: center;
 
       .bcfvmcjqhu {
         margin-right: 12px;
+
+        @media (max-width:1200px) {
+          margin-right: 0;
+        }
       }
 
       .zlpdcssnij {
@@ -25,6 +29,10 @@
 
         &:hover {
           font-weight: 600;
+        }
+
+        @media (max-width: 1200px) {
+          display: none;
         }
       }
     }
