@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
@@ -52,17 +52,6 @@ const SignUp = () => {
                 rules={[{ required: true }]}
               >
                 <Input.Password placeholder='Password' className='crbgwgmdom' />
-              </Form.Item>
-
-              <Form.Item
-                name="remember"
-                valuePropName="checked"
-                wrapperCol={{
-                  offset: 8,
-                  span: 16,
-                }}
-              >
-                <Checkbox className='iembffsomj'>Remember me</Checkbox>
               </Form.Item>
 
               <Form.Item>
