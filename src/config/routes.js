@@ -12,6 +12,8 @@ const routes = {
   song: "/mymusic/song/favorite",
   playlist: "/mymusic/library/playlist",
   history: "/mymusic/history",
+  signup: "/signup",
+  signin: "/signin",
 
   // Admin
   dashboard: "/admin",
