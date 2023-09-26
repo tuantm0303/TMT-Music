@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,10 +10,28 @@ import Song from "../Player/Song";
 import './Playing.scss';
 
 const Playing = () => {
+  const songRef = useRef()
+  const dispatch = useDispatch();
   const { song, songs, currentIndex } = useSelector(
     (state) => state.songReducer
   );
-  const dispatch = useDispatch();
+  const handleSongEnded = () => {
+    if (currentIndex < songs.length - 1) {
+      dispatch(nextPrevSong((currentIndex + 1) % songs.length));
+    }
+  }
+
+  useEffect(() => {
+    if (songRef.current) {
+      songRef.current.audio.current.addEventListener('ended', handleSongEnded)
+    }
+    return () => {
+      if (songRef.current) {
+        songRef.current.audio.current.removeEventListener('ended', handleSongEnded)
+      }
+    }
+  }, [currentIndex])
+
   const handleNext = () => {
     dispatch(nextPrevSong((currentIndex + 1) % songs.length));
   };
@@ -39,6 +58,9 @@ const Playing = () => {
           showJumpControls={false}
           onClickNext={handleNext}
           onClickPrevious={handlePrev}
+          autoPlay={false}
+          // onListen={handleListen}
+          ref={songRef}
         />
       </div>
       <div className="gbqgkdjqwi">
