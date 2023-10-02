@@ -50,6 +50,7 @@ const Playing = () => {
       </div>
       <div className="kzfyhcvxud">
         <AudioPlayer
+          ref={songRef}
           className="music-play"
           style={{ background: "#130C1C" }}
           src={song?.audio}
@@ -59,8 +60,6 @@ const Playing = () => {
           onClickNext={handleNext}
           onClickPrevious={handlePrev}
           autoPlay={false}
-          // onListen={handleListen}
-          ref={songRef}
         />
       </div>
       <div className="gbqgkdjqwi">
