@@ -7,6 +7,12 @@ import { addFavourites } from "../../store/features/songSlice"
 import "./Song.scss"
 
 const Song = ({ image, title, singer }) => {
+  const { favourite } = useSelector((state) => state.songReducer)
+  const dispatch = useDispatch()
+
+  const handleAddFavourites = () => {
+    dispatch(addFavourites(1))
+  }
   return (
     <div className="kybqblbsmr">
       <div className="ibymmdlsiw">
