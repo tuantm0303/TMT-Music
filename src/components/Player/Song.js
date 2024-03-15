@@ -1,10 +1,19 @@
 import { Popover } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as IconHeart } from '../../assets/svgs/icon-heart.svg';
 import { ReactComponent as IconOption } from '../../assets/svgs/icon-option.svg';
 import { ReactComponent as IconPlay } from '../../assets/svgs/icon-play.svg';
+import { addFavourites } from '../../store/features/songSlice';
 import './Song.scss';
 
 const Song = ({ image, title, singer }) => {
+  const { favourite } = useSelector((state) => state.songReducer)
+  const dispatch = useDispatch()
+  console.log('favorite', favourite);
+
+  const handleAddFavourites = () => {
+    dispatch(addFavourites(1))
+  }
   return (
     <div className="kybqblbsmr">
       <div className="ibymmdlsiw">
@@ -20,7 +29,9 @@ const Song = ({ image, title, singer }) => {
 
       <div className="jlbgbmkehm">
         <Popover trigger='hover' content={<div style={{ whiteSpace: 'nowrap' }}>Thêm vào thư viện</div>}>
-          <IconHeart className='akrlfhazbs' />
+          <div className='akrlfhazbs' onClick={() => handleAddFavourites()}>
+            <IconHeart />
+          </div>
         </Popover>
         <Popover trigger='hover' content='Khác'>
           <IconOption className='akrlfhazbs' />

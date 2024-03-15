@@ -33,6 +33,7 @@ const initialState = {
   isFetching: false,
   isSucess: false,
   isErr: false,
+  favourite: 0
 };
 
 const songSlice = createSlice({
@@ -46,6 +47,11 @@ const songSlice = createSlice({
       state.song = state.songs[action.payload];
       state.currentIndex = action.payload;
     },
+    addFavourites: (state, action) => {
+      state.favourite = action.payload
+      console.log(state);
+      console.log(action);
+    }
   },
   extraReducers: (builder) => {
     // list
@@ -140,6 +146,6 @@ const songSlice = createSlice({
   },
 });
 
-export const { setCurrentIndex, nextPrevSong } = songSlice.actions;
+export const { setCurrentIndex, nextPrevSong, addFavourites } = songSlice.actions;
 
 export default songSlice.reducer;

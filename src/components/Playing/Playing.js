@@ -12,9 +12,12 @@ import './Playing.scss';
 const Playing = () => {
   const songRef = useRef()
   const dispatch = useDispatch();
-  const { song, songs, currentIndex } = useSelector(
+  const { song, songs, currentIndex, favourite } = useSelector(
     (state) => state.songReducer
   );
+
+  console.log('currentIndex', currentIndex);
+
   const handleSongEnded = () => {
     if (currentIndex < songs.length - 1) {
       dispatch(nextPrevSong((currentIndex + 1) % songs.length));
